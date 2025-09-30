@@ -1,12 +1,199 @@
 <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Core 1 Interaction</title>
-  </head>
-  <body>
-    <h1>Welcome to Core 1 Interaction Page</h1>
-    <p>This is a simple HTML page.</p>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Glow — Entry 1</title>
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+   body {
+  margin: 0; 
+  color: var(--ink); 
+  font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  
+  
+  background-image: url('./images/entry1 background.jpeg');
+  background-size: cover;          /* 화면 전체 채우기 */
+  background-position: center;     /* 가운데 정렬 */
+  background-repeat: no-repeat;    /* 반복 없음 */
+  background-attachment: fixed;    /* 스크롤해도 고정 */
+}
+    .wrap{max-width:1200px; margin:36px auto; padding:0 20px}
+
+    /* header */
+    header{margin-bottom:18px}
+    .topbar{
+      display:grid; grid-template-columns:220px 1fr 120px; align-items:end; gap:16px;
+      padding-bottom:10px; border-bottom:2px solid var(--line);
+    }
+    .brand{font-family:"Times New Roman",Times,serif; color:var(--brand); font-size:42px; line-height:0.9; letter-spacing:1px; font-weight:700;}
+    nav{display:flex; justify-content:center; gap:36px; font-weight:600}
+    nav a{position:relative; padding:8px 2px}
+    nav a::after{content:""; position:absolute; left:0; right:0; bottom:-10px; height:2px; background:var(--line); transform:scaleX(0); transform-origin:left; transition:.25s}
+    nav a:hover::after{transform:scaleX(1)}
+    .signin{justify-self:end; font-weight:600}
+
+    /* layout */
+    .grid{display:grid; grid-template-columns:280px 1fr 320px; gap:24px; align-items:start}
+   .panel {
+  background: rgba(255, 255, 255, 0.6); /* ✅ 배경만 투명하게 */
+  border-radius: 16px;
+  padding: 18px;
+  backdrop-filter: blur(6px); /* 유리 같은 느낌 원하면 추가 */
+}
+
+   /* pick */
+.pick-img{
+  height:230px; width:auto; object-fit:contain; display:block;
+  margin:0 auto; border-radius:8px; border:1px solid var(--line);
+}
+.pick-ctrl{
+  display:flex; justify-content:center; align-items:center;
+  gap:12px; color:var(--muted); font-size:14px; margin-top:8px;
+}
+
+/* models */
+.stage{padding:18px}
+.models{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:28px 18px; justify-items:center;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(213,207,203,.6);
+  border-radius:14px;
+}
+.model{display:flex; flex-direction:column; align-items:center; gap:8px; width:220px;}
+.model img{height:260px; width:auto; object-fit:contain; display:block;}
+.model figcaption{min-height:32px; font-size:14px; color:#333; text-align:center;}
+
+/* cta */
+.cta h2{font-family:"Times New Roman",Times,serif; font-weight:700; font-size:42px; line-height:1.02; letter-spacing:1px; text-align:center; margin:0 0 12px;}
+.cta p{color:var(--muted); text-align:center; margin:0 0 12px}
+.btns{display:flex; gap:12px; justify-content:flex-end; margin-top:12px;}
+.btn{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 10px 18px; /* ✅ 크기 줄임 */
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .15s, background .2s, color .2s;
+.btn:hover transform: translateY(-1px);
+  background: 
+  color: #fff;
+}
+.btn.ghost{
+  background: transparent;
+  color: var(--ink);
+}
+
+/* 링크 기본값(파란/밑줄) 제거 – 전역 */
+a{color:var(--ink); text-decoration:none; font-weight:700;}
+a:hover{color:var(--ink); text-decoration:none;}
+    /* player */
+    .player{display:flex; align-items:center; gap:12px; margin-top:18px; padding:10px 14px; border-top:1px solid var(--line); color:#333;}
+    .play{width:0; height:0; border-left:12px solid var(--ink); border-top:8px solid transparent; border-bottom:8px solid transparent}
+    .track{flex:1; display:flex; justify-content:center; gap:14px; color:#333}
+    .progress{height:2px; background:#000; opacity:.4; width:160px}
+  .progress{height:2px; background:#000; opacity:.4; width:160px}
+
+a {
+  color: #1b1b1b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1b1b1b;
+  text-decoration: none;
+}a {
+  color: #1b1b1b !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+
+
+a:hover {
+  color: #1b1b1b !important;
+  text-decoration: none !important;
+}
+
+</style></style>
+ 
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="topbar">
+        <div class="brand">THE<br>GLOW</div>
+        <nav>
+          <a href="#">CLOSET</a><a href="#">STYLE</a><a href="#">BRANDS</a><a href="#">MUSIC</a><a href="#">MY SHOWROOM</a>
+        </nav>
+        <a class="signin" href="#">SIGN IN</a>
+      </div>
+
+    </header>
+
+    <main class="grid">
+      <!-- left -->
+      <aside class="panel pick">
+        <h3>Today’s Pick</h3>
+        <div class="pick-box">
+          <img class="pick-img" src="./images/pick.png" alt="Trending look">
+          <div class="pick-ctrl"><span>←</span><span>TRENDING LOOK</span><span>→</span></div>
+        </div>
+      </aside>
+
+      <!-- center -->
+      <section class="stage">
+        <div class="models">
+          <figure class="model">
+  <a href="./entry2 burberry.html">
+    <img src="./images/burberry.png" alt="Burberry look">
+  </a>
+  <figcaption>Burberry</figcaption>
+</figure>
+
+</figure>
+          <figure class="model"><img src="./images/rick.png" alt=""><figcaption>Rick Owens</figcaption></figure>
+          <figure class="model"><img src="./images/thom.png" alt=""><figcaption>Thom Browne</figcaption></figure>
+          <figure class="model"><img src="./images/diesel.png" alt=""><figcaption>Diesel</figcaption></figure>
+          <figure class="model"><img src="./images/prada.png" alt=""><figcaption>Prada</figcaption></figure>
+          <figure class="model"><img src="./images/acne.png" alt=""><figcaption>Acne Studios</figcaption></figure>
+          <figure class="model"><img src="./images/jacquemus.png" alt=""><figcaption>Jacquemus</figcaption></figure>
+          <figure class="model"><img src="./images/balenciaga.png" alt=""><figcaption>Balenciaga</figcaption></figure>
+          <figure class="model"><img src="./images/miu.png" alt=""><figcaption>Miu Miu</figcaption></figure>
+        </div>
+        <div class="player">
+          <div class="play"></div>
+          <div class="track"><span>Redbone</span><span>·</span><span>Childish Gambino</span></div>
+          <div class="progress"></div>
+        </div>
+      </section>
+
+      <!-- right -->
+      <aside class="panel cta">
+        <h2>Style<br>Your<br>World</h2>
+        <p>Create your own avatar, dress it up, and design a personal showroom</p>
+        <div class="btns">
+  <a class="btn" href="#">Start Styling</a>
+  <a class="btn ghost" href="#">Explore Closet</a>
+</div
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
 </html>
