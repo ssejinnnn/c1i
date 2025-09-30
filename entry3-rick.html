@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rick Owens — Entry 3</title>
+  <style>
+    :root{
+      --ink:#1b1b1b; --muted:#6b6b6b; --line:#d5cfcb; --card:#ffffffcc;
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font: 400 16px/1.55 ui-sans-serif, -apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+      /* 배경이미지: 네가 쓰는 배경으로 바꿔도 OK */
+      background: url("./images/entry1 background.jpeg") center/cover fixed no-repeat;
+    }
+    .wrap{max-width:1200px; margin:24px auto 48px; padding:0 20px}
+
+    /* 상단 바 / 브랜드 제목 */
+    .top{
+      display:grid; grid-template-columns:48px 1fr 48px; align-items:center;
+      margin-bottom:10px;
+    }
+    .navbtn{display:grid; place-items:center; width:40px; height:40px; border-radius:999px;
+      border:1.5px solid var(--ink); background:#fff; text-decoration:none; color:var(--ink);}
+    .brand{font-family:"Times New Roman",Times,serif; font-size:54px; font-weight:700; text-align:center}
+
+    /* 메인 레이아웃 */
+    .stage{display:grid; grid-template-columns:1fr 1fr 1.2fr 1fr 1fr; gap:24px; align-items:start}
+    .card{
+      background: rgba(255,255,255,.70);
+      border:1px solid rgba(213,207,203,.6);
+      border-radius:14px; padding:18px; backdrop-filter: blur(6px);
+      display:grid; justify-items:center; gap:10px;
+    }
+    .card img{max-width:240px; width:100%; height:auto; object-fit:contain; display:block}
+    .card figcaption{font-size:14px; color:#333; text-align:center}
+
+    /* 중앙 모델 */
+    .hero{display:grid; justify-items:center; align-items:start}
+    .hero img{height:520px; width:auto; object-fit:contain; display:block}
+    .label {margin-top:8px; font-size:16px; color:#333}
+
+    /* 반응형 */
+    @media (max-width:900px){
+      .stage{grid-template-columns:1fr; }
+      .hero img{height:420px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="navbtn" href="./index.html" aria-label="Back">←</a>
+      <div class="brand">Rick Owens</div>
+      <a class="navbtn" href="#" aria-label="Next">→</a>
+    </div>
+
+    <main class="stage">
+      <!-- 좌측 카드들 -->
+      <figure class="card">
+        <img src="./images/rick-hoodie.png" alt="Rick Owens hoodie">
+        <figcaption>Tour Hoodie Jacket</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="./images/rick-pants.png" alt="Rick Owens pants">
+        <figcaption>Bolon Cargo</figcaption>
+      </figure>
+
+      <!-- 중앙 모델 -->
+      <section class="hero">
+        <img src="./images/rick.png" alt="Rick Owens look">
+        <div class="label">Rick Owens</div>
+      </section>
+
+      <!-- 우측 카드들 -->
+      <figure class="card">
+        <img src="./images/rick-tank.png" alt="Rick Owens tank">
+        <figcaption>Spider Tank</figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="./images/rick-shirt.png" alt="Rick Owens overshirt">
+        <figcaption>Fogpocket Overshirt</figcaption>
+      </figure>
+    </main>
+  </div>
+</body>
+</html>
