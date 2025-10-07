@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thom Browne — Entry 4</title>
+  <style>
+    /* ---------- Base ---------- */
+    :root{
+      --ink:#111; 
+      --paper:#ffffff;
+      --muted:#666;
+      --edge:#e6e6e6;
+      --pill:#f7f7f7;
+      --accent:#d81b60; /* 필요시 교체 */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; 
+      color:var(--ink);
+      font:400 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background:#000; /* 분할 배경 사이 보더가 어둡게 보이도록 */
+    }
+
+    /* ---------- Split layout ---------- */
+    .page{
+      min-height:100dvh;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+    }
+    .pane{
+      position:relative;
+      overflow:hidden;
+      isolation:isolate; /* 캡션/아이템 겹침 안정화 */
+    }
+    .pane--left{
+      /* ⬇⬇ 너의 좌측 배경으로 교체 */
+      background:url("./images/tb_left_bg.jpg") center/cover no-repeat fixed;
+      padding:clamp(12px,3vw,24px);
+    }
+    .pane--right{
+      /* ⬇⬇ 너의 우측 배경(락커룸)으로 교체 */
+      background:url("./images/tb_right_bg.jpg") center/cover no-repeat fixed;
+      display:grid;
+      place-items:center;
+    }
+
+    /* ---------- Left: grid of items ---------- */
+    .items{
+      max-width:min(540px, 90%);
+      margin-inline:auto;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px 28px;
+    }
+    figure.item{
+      margin:0;
+      display:grid;
+      place-items:center;
+      text-align:center;
+    }
+    .item img{
+      width:min(240px, 46vw);
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 6px 18px rgba(0,0,0,.25));
+      transition:transform .2s ease;
+    }
+    .item:hover img{ transform:translateY(-2px) scale(1.02); }
+
+    .item figcaption{
+      margin-top:8px;
+      padding:6px 10px;
+      font:500 12px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background:var(--pill);
+      color:#222;
+      border:1px solid var(--edge);
+      border-radius:24px;
+      white-space:nowrap;
+      backdrop-filter:saturate(120%) blur(2px);
+    }
+
+    /* ---------- Brand lockup (right/top) ---------- */
+    .brand{
+      position:absolute;
+      top:20px; 
+      right:20px;
+      width:min(280px,38vw);
+      max-width:320px;
+      z-index:2;
+    }
+    .brand img{ width:100%; height:auto; display:block; }
+
+    /* ---------- Model (center) ---------- */
+    .model{
+      position:relative;
+      width:min(420px, 55%);
+      aspect-ratio:3/5;
+      display:grid;
+      place-items:end center;
+    }
+    .model img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 16px 24px rgba(0,0,0,.35));
+    }
+
+    /* ---------- Arrows (prev/next) ---------- */
+    .nav{
+      position:absolute;
+      inset:16px 16px auto 16px;
+      display:flex; 
+      justify-content:space-between;
+      gap:12px;
+      pointer-events:none; /* 컨테이너 클릭 방지 */
+      z-index:3;
+    }
+    .nav a{
+      pointer-events:auto;
+      display:grid; place-items:center;
+      width:40px; height:40px;
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      color:#111; text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--edge);
+      box-shadow:0 4px 14px rgba(0,0,0,.18);
+      transition:transform .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .nav a:hover{ transform:translateY(-1px); background:#fff; }
+
+    /* ---------- Footer brand (left/bottom) ---------- */
+    .footerLockup{
+      position:absolute;
+      left:clamp(16px,3vw,24px);
+      bottom:clamp(16px,3vw,24px);
+      color:#fff;
+      text-shadow:0 2px 14px rgba(0,0,0,.6);
+      font-weight:700;
+      letter-spacing:.04em;
+      mix-blend-mode:overlay;
+    }
+    .footerLockup .big{ font-size:clamp(28px,4.2vw,48px); display:block }
+    .footerLockup .sm{ font-size:clamp(14px,2vw,18px); opacity:.9 }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 880px){
+      .page{ grid-template-columns:1fr; }
+      .pane--right{ min-height:88dvh; }
+      .brand{ right:12px; top:12px; width:44vw; }
+      .footerLockup{ mix-blend-mode:normal }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+    <!-- LEFT : product grid -->
+    <section class="pane pane--left" aria-label="Thom Browne product collage">
+      <div class="items">
+        <!-- ⬇⬇ 각 이미지 파일명을 너의 실제 파일로 교체 -->
+        <figure class="item">
+          <img src="./images/tb_skirt1.png" alt="Hector Corduroy Mini Skirt">
+          <figcaption>Hector Corduroy Mini Skirt</figcaption>
+        </figure>
+
+        <figure class="item">
+          <img src="./images/tb_cardigan.png" alt="4-Bar stripe cardigan">
+          <figcaption>4-Bar stripe cardigan</figcaption>
+        </figure>
+
+        <figure class="item">
+          <img src="./images/tb_shirt.png" alt="Cropped striped cotton-poplin shirt">
+          <figcaption>Cropped striped cotton-poplin shirt</figcaption>
+        </figure>
+
+        <figure class="item">
+          <img src="./images/tb_bag.png" alt="Hector pebbled leather bag">
+          <figcaption>Hector pebbled leather bag</figcaption>
+        </figure>
+
+        <figure class="item">
+          <img src="./images/tb_skirt2.png" alt="4-Bar pleated mini skirt">
+          <figcaption>4-Bar pleated mini skirt</figcaption>
+        </figure>
+
+        <figure class="item">
+          <img src="./images/tb_skirt3.png" alt="High-waisted skirt">
+          <figcaption>High-waisted skirt</figcaption>
+        </figure>
+      </div>
+
+      <!-- 좌측 하단 로고 타이포(선택) -->
+      <div class="footerLockup" aria-hidden="true">
+        <span class="big">THOM BROWNE.</span>
+        <span class="sm">NEW YORK</span>
+      </div>
+    </section>
+
+    <!-- RIGHT : brand + model + arrows -->
+    <section class="pane pane--right" aria-label="Thom Browne look">
+      <!-- 네비게이션(좌/우) : 링크를 너의 파일 경로로 교체 -->
+      <div class="nav" aria-label="Entry navigation">
+        <a href="./entry3-rick.html" aria-label="Previous entry">&#8592;</a>
+        <a href="./index.html" aria-label="Next entry">&#8594;</a>
+      </div>
+
+      <!-- 브랜드 로고(우측 상단) -->
+      <div class="brand">
+        <img src="./images/tb_logo.png" alt="Thom Browne New York logo">
+      </div>
+
+      <!-- 모델 -->
+      <figure class="model">
+        <!-- ⬇⬇ 배경이 투명한 PNG 추천 -->
+        <img src="./images/tb_model.png" alt="Thom Browne swim look">
+      </figure>
+    </section>
+  </main>
+
+</body>
+</html>
