@@ -130,7 +130,18 @@ a:hover {
   text-decoration: none !important;
 }
 
-</style></style>
+/* 이미지 hover 시 확대 효과 */
+.model img {
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.model img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+}
+
+</style>
  
 </head>
 <body>
@@ -179,7 +190,14 @@ a:hover {
     <figcaption>Thom Browne</figcaption>
      </a>
 </figure>
-          <figure class="model"><img src="./images/diesel.png" alt=""><figcaption>Diesel</figcaption></figure>
+
+<figure class="model">
+  <a href="./entry5-diesel.html" aria-label="Diesel 페이지 열기">
+    <img src="./images/diesel.png" alt="diesel look">
+    <figcaption>Diesel</figcaption>
+  </a>
+</figure>
+
           <figure class="model"><img src="./images/prada.png" alt=""><figcaption>Prada</figcaption></figure>
           <figure class="model"><img src="./images/acne.png" alt=""><figcaption>Acne Studios</figcaption></figure>
           <figure class="model"><img src="./images/jacquemus.png" alt=""><figcaption>Jacquemus</figcaption></figure>
