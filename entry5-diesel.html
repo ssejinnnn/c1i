@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>entry5-diesel</title>
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+   body {
+  margin: 0; 
+  color: var(--ink); 
+  font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  
+  
+  background-image: url('./images/entry5-diesel/final bg.png');
+  background-size: cover;          /* 화면 전체 채우기 */
+  background-position: center;     /* 가운데 정렬 */
+  background-repeat: no-repeat;    /* 반복 없음 */
+  background-attachment: fixed;    /* 스크롤해도 고정 */
+}
+
+   /* 모델 배치 */
+    .scene{
+      position:relative;
+      min-height:100vh;      /* 화면 꽉 채우기 */
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+   .model {
+  position: absolute;
+  bottom: 2px;
+  height: 65%;               /* 🔽 크기 조정 */
+  object-fit: contain;
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+/* 위치 */
+.model.left { left: 0%; }     /* 🔽 왼쪽 모델 */
+.model.right { right: 45%; }  /* 🔽 오른쪽 모델 */
+
+/* 호버 시 살짝 확대 */
+.model:hover { transform: scale(1.03); }
+
+/* 오른쪽 포스터 위에 상품 이미지 얹기 */
+.posterBox{
+  position:absolute; right:0; top:0;
+  width:42vw;                 /* 오른쪽 영역 폭 */
+  height:100vh;
+  pointer-events:none;        /* 포스터 자체는 클릭 안 되게(선택) */
+}
+.pItem{
+  position:absolute;
+  left:var(--x); top:var(--y); width:var(--w);
+  text-align:center; z-index:10; pointer-events:auto;
+}
+.pItem .card{
+  background:transparent
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px; padding:12px;
+  transition:transform .2s ease, filter .2s ease;
+}
+.pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
+.pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+.pItem figcaption{ margin-top:8px; font-size:12px; background:#eee8dc; color:#333; padding:6px 10px; border-radius:999px; display:inline-block; }
+
+  </style>
+
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <!-- ▼ 모델 이미지 경로 (둘 중 하나 선택) -->
+    <!-- 1) html과 images가 같은 폴더면 ./images -->
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
+    <img class="model right" src="./images/실사모델배경제거2.png" alt="실사모델배경제거2">
+
+  <!-- 포스터 위 상품들 -->
+<div class="posterBox">
+  <!-- 맨 위 오른쪽 두 개 -->
+  <div class="pItem" style="--x:67%; --y:-2%;  --w:20%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/pink bag.png" alt="pink bag"><figcaption>pink bag</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:88%; --y:0.2%;  --w:18%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/pink tank top.png" alt="pink tank top"><figcaption>pink tank top</figcaption>
+    </div>
+  </div>
+
+  <!-- 상단 줄: denim / T-uffy / silver -->
+  <div class="pItem" style="--x:20.2%; --y:19%; --w:19%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/denim tank top.png" alt="denim tank top"><figcaption>denim tank top</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:50%; --y:17%; --w:25%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/T-uffy cropped top.png" alt="T-uffy cropped top"><figcaption>T-uffy cropped top</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:81%; --y:23%; --w:27%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/silver top.png" alt="silver top"><figcaption>silver top</figcaption>
+    </div>
+  </div>
+
+  <!-- 중단: rose dress / black denim skirt -->
+  <div class="pItem" style="--x:20%; --y:50%; --w:20%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/rose dress.png" alt="rose dress"><figcaption>rose dress</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:51%; --y:44%; --w:22%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/black denim skirt.png" alt="black denim skirt"><figcaption>black denim skirt</figcaption>
+    </div>
+  </div>
+
+  <!-- 하단: brown knit / beanies / denim shorts -->
+  <div class="pItem" style="--x:51%; --y:68%; --w:23%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/brown knit top.png" alt="brown knit top"><figcaption>brown knit top</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:89%; --y:64%; --w:10%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/k-atullus beanies.png" alt="k-atullus beanies"><figcaption>k-atullus beanies</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:84%; --y:79%; --w:22%;">
+    <div class="card">
+      <img src="./images/entry5-diesel/images/Diesel Kurze Hosen.png" alt="Diesel Kurze Hosen"><figcaption>Diesel Kurze Hosen</figcaption>
+    </div>
+  </div>
+</div>
+
+
+
+        </figure>
+      </div>
+    </aside>
+  </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+ 
