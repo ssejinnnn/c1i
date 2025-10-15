@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brand — Your Styling Site</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .brand-page { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .hero { width: 100%; height: auto; display: block; margin: 16px 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 16px; }
+    .grid img { width: 100%; height: auto; display: block; }
+    header a { text-decoration: none; }
+  </style>
+</head>
+<body>
+<header><a href="index.html">← Back</a></header>
+
+<main class="brand-page">
+  <h1 id="brand-name">Brand</h1>
+  <img id="brand-hero" class="hero" alt="">
+  <p id="brand-desc"></p>
+
+  <section>
+    <h2>Looks</h2>
+    <div id="look-grid" class="grid"></div>
+  </section>
+</main>
+
+<script>
+  // 1) URL에서 brand 키를 받기
+  const params = new URLSearchParams(location.search);
+  const brandKey = params.get('brand');
+
+  // 2) 데이터 불러와서 DOM 채우기
+  fetch('data/brands.json')
+    .then(res => res.json())
+    .then(all => {
+      const data = all[brandKey];
+      if (!data) {
+        document.getElementById('brand-name').textContent = 'Brand not found';
+        return;
+        }
+      document.title = `${data.name} — Your Styling Site`;
+      document.getElementById('brand-name').textContent = data.name;
+      const hero = document.getElementById('brand-hero');
+      hero.src = data.hero;
+      hero.alt = data.name;
+      document.getElementById('brand-desc').textContent = data.desc;
+
+      const grid = document.getElementById('look-grid');
+      data.looks.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        grid.appendChild(img);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('brand-name').textContent = 'Error loading brand';
+    });
+</script>
+</body>
+</html>
