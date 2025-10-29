@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>entry5-diesel</title>
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+   body {
+  margin: 0; 
+  color: var(--ink); 
+  font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+
+
+  background-image: url('./images/entry6-prada/images/bg.png');
+  background-size: cover;          /* 화면 전체 채우기 */
+  background-position: center;     /* 가운데 정렬 */
+  background-repeat: no-repeat;    /* 반복 없음 */
+  background-attachment: fixed;    /* 스크롤해도 고정 */
+}
+
+   /* 모델 배치 */
+    .scene{
+      position:relative;
+      min-height:100vh;      /* 화면 꽉 채우기 */
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+   .model {
+  position: absolute;
+  bottom: 2px;
+  height: 65%;               /* 🔽 크기 조정 */
+  object-fit: contain;
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+/* 위치 */
+.model.left { left: -6%; }     /* 🔽 왼쪽 모델 */
+.model.right { right: 57%; }  /* 🔽 오른쪽 모델 */
+
+/* 호버 시 살짝 확대 */
+.model:hover { transform: scale(1.03); }
+
+/* 오른쪽 포스터 위에 상품 이미지 얹기 */
+.posterBox{
+  position:absolute; right:0; top:0;
+  width:42vw;                 /* 오른쪽 영역 폭 */
+  height:100vh;
+  pointer-events:none;        /* 포스터 자체는 클릭 안 되게(선택) */
+}
+.pItem{
+  position:absolute;
+  left:var(--x); top:var(--y); width:var(--w);
+  text-align:center; z-index:10; pointer-events:auto;
+}
+.pItem .card{
+  background:transparent
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px; padding:12px;
+  transition:transform .2s ease, filter .2s ease;
+}
+.pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
+.pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+.pItem figcaption{ margin-top:8px; font-size:12px; background:#eee8dc; color:#333; padding:6px 10px; border-radius:999px; display:inline-block; }
+
+  </style>
+<div class="videobox"></div>
+<left:var(--10); top:var(--10); width:var(--10);
+
+
+  </style>
+</head>
+<body>
+  <div class="scene">
+  
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
+    <img class="model right" src="./images/실사모델배경제거2.png" alt="실사모델배경제거2">
+
+ 
+<div class="posterBox">
+ 
+  
+ 
+
+  <!-- 상단 줄: denim / T-uffy / silver -->
+  
+         <div class="posterBox"></div>
+  </div>
+  <div class="pItem" style="--x:60.2%; --y:0%; --w:10%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/silver mini bag.png" alt="silver mini bag"><figcaption>silver mini bag</figcaption>
+    </div>
+    
+  </div>
+  <div class="pItem" style="--x:71%; --y:17%; --w:15%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/black skirt.png" alt="black skirt"><figcaption>black skirt</figcaption>
+    </div>
+    </div>
+  <div class="pItem" style="--x:72%; --y:44%; --w:14%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/prada cardigan.png" alt="prada cardigan"><figcaption>prada cardigan</figcaption>
+    </div>
+        </div>
+  <div class="pItem" style="--x:75%; --y:75%; --w:9%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/silver top.png" alt="silver top"><figcaption>silver top</figcaption>
+    </div>
+  </div>
+  <div class="pItem" style="--x:83%; --y:19%; --w:21.5%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/black dress.png" alt="black dress"><figcaption>black dress</figcaption>
+    </div>
+  </div>
+
+  <div class="pItem" style="--x:60%; --y:25%; --w:10%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/purple mini bag.png" alt="purple mini bag"><figcaption>purple mini bag</figcaption>
+    </div>
+  </div>
+    <div class="pItem" style="--x:60%; --y:50.5%; --w:10%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/blue mini bag.png" alt="blue mini bag"><figcaption>blue mini bag</figcaption>
+    </div>
+     </div>
+     <div class="pItem" style="--x:60%; --y:73%; --w:10%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/triangle mini bag.png" alt="triangle mini bag"><figcaption>triangle mini bag</figcaption>
+    </div>
+    </div>
+  <div class="pItem" style="--x:85%; --y:61%; --w:18%;">
+    <div class="card">
+      <img src="./images/entry6-prada/images/white dress.png" alt="white dress"><figcaption>white dress</figcaption>
+    </div>
+  
+\
+
+
+         
+  </video>
+</div>
+  
+
+  
+
+
+
+
+        </figure>
+      </div>
+    </aside>
+  </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+ 
