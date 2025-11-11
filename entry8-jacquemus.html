@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><entry8-jacquemus></entry8-jacquemus></title>
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry8-jacquemus/bg.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    /* 레이아웃 */
+    .scene{
+      position:relative;
+      min-height:100vh;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* 모델 */
+    .model{
+      position:absolute;
+      bottom:200px;
+      height:54%;
+      object-fit:contain;
+      z-index:5;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:-7%; }     /* 왼쪽 모델 위치 */
+    .model.right{ right:57%; }   /* 오른쪽 모델 위치 */
+    .model:hover{ transform:scale(1.03); }
+
+    /* 오른쪽 포스터 영역 */
+    .posterBox{
+      position:absolute; right:0; top:0;
+      width:42vw; height:100vh;
+      pointer-events:none; /* 포스터 자체 클릭 방지 */
+    }
+
+    /* 아이템 카드 */
+    .pItem{
+      position:absolute;
+      left:var(--x); top:var(--y); width:var(--w);
+      text-align:center; z-index:10; pointer-events:auto;
+    }
+    .pItem .card{
+      background:transparent; /* ← 세미콜론 추가 */
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px; padding:12px;
+      transition:transform .2s ease, filter .2s ease;
+    }
+    .pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
+    .pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+    .pItem figcaption{
+      margin-top:8px; font-size:12px; background:#eee8dc; color:#333;
+      padding:6px 10px; border-radius:999px; display:inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
+   
+    <!-- 포스터 + 아이템들 -->
+    <div class="posterBox">
+      <div class="pItem" style="--x:66.2%; --y:72%;   --w:20%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/bag1.png" alt="bag1">
+          </figcaption>
+        </div>
+      </div>
+
+      <div class="pItem" style="--x:90%; --y:26%; --w:17%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/denim top.png" alt="denim top">
+          <figcaption>denim top</figcaption>
+        </div>
+      </div>
+
+      <div class="pItem" style="--x:65%; --y:40%; --w:23%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/striped top.png" alt="striped top">
+          <figcaption>striped top</figcaption>
+        </div>
+      </div>
+
+      <div class="pItem" style="--x:62%; --y:10.5%; --w:27%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/draped skirt.png" alt="draped skirt">
+          <figcaption>draped skirt</figcaption>
+        </div>
+      </div>
+
+      <div class="pItem" style="--x:76%; --y:37%; --w:48%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/spiaggia dress.png" alt="spiaggia dress">
+          <figcaption>sspiaggia dress</figcaption>
+        </div>
+
+          <div class="pItem" style="--x:26%; --y:-50%; --w:40%;">
+        <div class="card">
+          <img src="./images/entry8-jacquemus/bag2.png" alt="bag2">
+          </figcaption>
+        </div>
+      </div>
+
+      </div>
+        <div class="pItem" style="--x:-9%; --y:70%; --w:31%;">
+    <a href="https://www.youtube.com/watch?v=u5D7qPC_wGQ" target="_blank">
+      <img src="./images/entry8-jacquemus/show.png" alt=" F/W 2025">
+    </a>
+  </div>
+</div>
+
+      </div>
+        <div class="pItem" style="--x:12%; --y:7%; --w:5%;">
+    <a href="https://www.jacquemus.com/en_us/fall-winter-25-new-in-women" target="_blank">
+      <img src="./images/entry8-jacquemus/banana.jpeg" alt=" F/W 2025">
+    </a>
+  </div>
+</div>
+
+      </div>
+    </div><!-- /.posterBox -->
+  </div><!-- /.scene -->
+</body>
+</html>
