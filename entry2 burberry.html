@@ -3,178 +3,208 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Burberry</title>
+<title>entry4-burberry</title>
+
 <style>
-  :root{
-    --ink:#111; --muted:#666; --card:#ffffffd9; --line:#d9d4cf;
-    --radius:18px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
+  :root{ --ink:#1b1b1b; }
+  *{ box-sizing:border-box }
+  html, body { height:100% }
   body{
     margin:0; color:var(--ink);
-    font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-    background:#111;                   /* 바깥 여백(검정 띠) */
-  }
-  .frame{
-    max-width:980px;
-    margin:24px auto 40px;
-    background:#eee;
-    border-radius:12px;
-    overflow:hidden;
+    font:400 16px/1.5 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+    /* 배경 이미지 */
+    background:url('./images/entry2-burberry/BB bg .png') center/cover no-repeat fixed;
   }
 
-  /* 상단 바 */
-  .chrome{
-    display:flex; align-items:center; gap:16px;
-    padding:14px 22px; color:#cfcfcf;
-    font-weight:600; letter-spacing:.2px;
-  }
-  .chrome .title{opacity:.9}
-  .chrome .spacer{flex:1}
-
-  /* 캔버스(실제 컨텐츠 영역) */
-  .canvas{
-    background-image:url("./images/burberry_plaid.jpg"); /* ← 체크 배경 */
-    background-size:cover; background-position:center;
-    padding:22px;
-  }
-  /* 상단 로고 영역 */
-  .brand-hero{
-    background:#f2eee9;
-    border-radius:6px;
-    padding:28px 16px 18px;
-    text-align:center;
-    position:relative;
-  }
-  .brand-hero .arrows{
-    position:absolute; inset:10px 14px auto 14px;
-    display:flex; justify-content:space-between; font-size:22px;
-  }
-  .brand-hero .arrows a{color:#000; text-decoration:none}
-  .brand-hero img.logo{
-    height:78px; display:block; margin:0 auto 6px;
-  }
-  .brand-hero .wordmark{
-    font-family:"Times New Roman",Times,serif;
-    font-weight:800; font-size:44px; letter-spacing:3px;
-  }
-  .brand-hero .city{
-    margin-top:6px; letter-spacing:6px; font-size:12px; color:#444;
-  }
-
-  /* 제품 그리드 */
-  .grid{
-    display:grid; gap:18px;
-    grid-template-columns: repeat(6, 1fr);
-    background: linear-gradient(#ffffffc0, #ffffffc0);
-    border-radius:10px; padding:18px;
-    margin-top:18px;
-  }
-  /* 가운데 모델 영역(2칸 x 3행 차지) */
+  /* 레이아웃 */
+  .scene{ position:relative; min-height:100vh; width:100%; max-width:1200px; margin:0 auto; }
   .model{
-    grid-column: 3 / span 2; grid-row: 1 / span 3;
-    display:flex; align-items:flex-end; justify-content:center;
-    position:relative;
-    background: #ffffffb0;
-    border-radius:10px;
+    position:absolute; left:38%; bottom:37px;
+    height:65%; object-fit:contain;
+    z-index:5; transition:transform .3s ease;
   }
-  .model img{ max-height:520px; width:auto; display:block; }
+  .model:hover{ transform:scale(1.03); }
 
-  /* 제품 카드 */
+  /* 오른쪽 포스터 영역 */
+  .posterBox{
+    position:absolute; right:0; top:0; width:42vw; height:100vh;
+    pointer-events:auto; /* 클릭 가능 */
+  }
+  .pItem{
+    position:absolute;
+    left:var(--x); top:var(--y); width:var(--w);
+    text-align:center; z-index:10; pointer-events:auto;
+  }
   .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:12px 12px 10px;
-    display:flex; flex-direction:column; align-items:center; gap:8px;
+    background:transparent; /* ← 세미콜론 중요 */
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:12px; padding:12px;
+    transition:transform .2s ease, filter .2s ease;
   }
-  .card img{ max-width:100%; height:150px; object-fit:contain; }
-  .card .name{ font-size:12px; color:#444; text-align:center; }
+  .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
+  .pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+  .pItem figcaption{
+    margin-top:8px; font-size:12px; background:#eee8dc; color:#333;
+    padding:6px 10px; border-radius:999px; display:inline-block;
+  }
 
-  /* 네 개 좌우/상하 배치: 카드 8개 */
-  .item{ }
-  /* 반응형 살짝 */
-  @media (max-width: 900px){
-    .grid{ grid-template-columns: repeat(4, 1fr); }
-    .model{ grid-column:2 / span 2; grid-row: 2 / span 2; }
-  }
+  /* (옵션) 빠르게 상태 확인용 버튼 */
+  .tools{ position:fixed; right:12px; bottom:12px; display:flex; gap:8px; }
+  .tools button{ padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; }
 </style>
 </head>
 <body>
-  <!-- 상단 (브라우저 크롬 느낌) -->
-  <div class="chrome">
-    <div class="title">Burberry</div>
-    <div class="spacer"></div>
-  </div>
 
-  <div class="frame">
-    <div class="canvas">
-      <!-- 로고/네비 -->
-      <div class="brand-hero">
-        <div class="arrows">
-          <a href="./index.html" title="Back">←</a>
-          <a href="#" title="Next">→</a>
-        </div>
-        <img class="logo" src="./images/burberry_knight.png" alt="">
-        <div class="wordmark">BURBERRY</div>
-        <div class="city">L O N D O N</div>
-      </div>
+<div class="scene">
+  <!-- 모델 -->
+  <img class="model" src="./images/실사모델배경제거2.png" alt="model">
 
-      <!-- 본문 그리드 -->
-      <div class="grid">
-        <!-- 1행 좌측 2개 -->
-        <div class="item card">
-          <img src="./images/bb_sweater.png" alt="">
-          <div class="name">Wool Cashmere Sweater</div>
-        </div>
-        <div class="item card">
-          <img src="./images/bb_skirt.png" alt="">
-          <div class="name">Nova Check Belted Mini Skirt</div>
-        </div>
+  <!-- 상품 카드들 -->
+  <div class="posterBox" id="poster">
+    <!-- 예시 1: Burberry 스웨터 (클릭 → 지정 좌표로 이동/복귀) -->
+    <div class="pItem" style="--x:-97.5%; --y:30%; --w:34%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Wool Cashmere Sweater.png"
+          alt="Wool Cashmere Sweater"
+          data-target-x="-10" data-target-y="35" data-target-w="37"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
 
-        <!-- 가운데 모델 -->
-        <div class="model">
-          <img src="./images/burberry_model.png" alt="Center model">
-        </div>
+    <!-- 예시 2~3: 다른 카드(원하면 data-target-* 추가해서 같은 방식으로 사용) -->
+    <div class="pItem" style="--x:-64%; --y:32%; --w:34%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Nova Check Belted Mini Skirt.png"
+          alt="Nova Check Belted Mini Skirt"
+          data-target-x="-8.5" data-target-y="52" data-target-w="34"
+          onclick="moveToTarget(this)"
+        >
+      </figcaption>
+      </figure>
+    </div>
 
-        <!-- 1행 우측 2개 -->
-        <div class="item card">
-          <img src="./images/bb_tote.png" alt="">
-          <div class="name">Check Medium Tote</div>
-        </div>
-        <div class="item card">
-          <img src="./images/bb_sweatshirt.png" alt="">
-          <div class="name">Pink Cotton Sweatshirt</div>
-        </div>
-
-        <!-- 2행 좌측 2개 -->
-        <div class="item card">
-          <img src="./images/bb_bag.png" alt="">
-          <div class="name">Petite Logo Nylon Tote</div>
-        </div>
-        <div class="item card">
-          <img src="./images/bb_trench.png" alt="">
-          <div class="name">Cropped Gabardine Trench</div>
-        </div>
-
-        <!-- 2행 우측 2개 -->
-        <div class="item card">
-          <img src="./images/bb_sweater2.png" alt="">
-          <div class="name">Polyester Sweater</div>
-        </div>
-        <div class="item card">
-          <img src="./images/bb_sporttop.png" alt="">
-          <div class="name">Daily Check Sport Top</div>
-        </div>
-      </div>
+    <div class="pItem" style="--x:-98%; --y:66%; --w:35%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Petit Rose Beige Logo Nylon Tote bag.png"
+          alt="Petit Rose Beige Logo Nylon Tote bag"
+          data-target-x="-16" data-target-y="62" data-target-w="35"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
+    <div class="pItem" style="--x:-65%; --y:64%; --w:37%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Cropped Gabardine Trench Jacket.png"
+          alt="Cropped Gabardine Trench Jacket"
+          data-target-x="-11" data-target-y="35" data-target-w="39"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
+    </div>
+    <div class="pItem" style="--x:64%; --y:30%; --w:18%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Check Medium Tote.png"
+          alt="Check Medium Totet"
+          data-target-x="39" data-target-y="62" data-target-w="18"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
+    <div class="pItem" style="--x:81%; --y:33%; --w:18%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Pink Cotton Sweatshirt.png"
+          alt="Pink Cotton Sweatshirt"
+          data-target-x="41.5" data-target-y="36" data-target-w="20.5"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
     </div>
   </div>
+    <div class="pItem" style="--x:60.5%; --y:64.5%; --w:15%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Polyester Sweater.png"
+          alt="Polyester Sweater"
+          data-target-x="43" data-target-y="36" data-target-w="17"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
+   <div class="pItem" style="--x:75%; --y:68%; --w:14%;">
+      <figure class="card">
+        <img
+          src="./images/entry2-burberry/Dalby Check Sport Top.png"
+          alt="Dalby Check Sport Top"
+          data-target-x="45" data-target-y="37" data-target-w="13"
+          onclick="moveToTarget(this)"
+        >
+        </figcaption>
+      </figure>
+    </div>
+
+<!-- (옵션) 전체 리셋 버튼 -->
+<div class="tools">
+  <button onclick="resetAll()">Reset All</button>
+</div>
+
+<script>
+  // 클릭한 카드 IMG → data-target 좌표로 이동 / 다시 클릭하면 원위치 복귀 (토글)
+  function moveToTarget(img){
+    const item = img.closest('.pItem');
+
+    // 원래 좌표 저장 (처음 한 번만)
+    if (!img.dataset.originX) {
+      const cs = getComputedStyle(item);
+      img.dataset.originX = parseFloat(cs.getPropertyValue('--x')) || 0;
+      img.dataset.originY = parseFloat(cs.getPropertyValue('--y')) || 0;
+      img.dataset.originW = parseFloat(cs.getPropertyValue('--w')) || 0;
+    }
+
+    // 이동되어 있으면 원위치로
+    if (img.dataset.moved === '1') {
+      item.style.setProperty('--x', img.dataset.originX + '%');
+      item.style.setProperty('--y', img.dataset.originY + '%');
+      item.style.setProperty('--w', img.dataset.originW + '%');
+      img.dataset.moved = '0';
+      return;
+    }
+
+    // 목표 좌표로 이동
+    const x = img.dataset.targetX, y = img.dataset.targetY, w = img.dataset.targetW;
+    if (x != null) item.style.setProperty('--x', x + '%');
+    if (y != null) item.style.setProperty('--y', y + '%');
+    if (w != null) item.style.setProperty('--w', w + '%');
+    img.dataset.moved = '1';
+  }
+
+  // (옵션) 모든 카드 원위치 복귀
+  function resetAll(){
+    document.querySelectorAll('.posterBox .pItem').forEach(item=>{
+      // origin 저장된 IMG가 있으면 복원
+      const img = item.querySelector('img');
+      if (img && img.dataset.originX) {
+        item.style.setProperty('--x', img.dataset.originX + '%');
+        item.style.setProperty('--y', img.dataset.originY + '%');
+        item.style.setProperty('--w', img.dataset.originW + '%');
+        img.dataset.moved = '0';
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
