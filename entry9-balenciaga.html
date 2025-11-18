@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entry 9 – Balenciaga Board</title>
+
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{ box-sizing:border-box; }
+
+    html,body{
+      height:100%;
+      margin:0;
+    }
+
+    body{
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry9-balenciaga/bg2.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    /* ===== 전체 레이아웃 ===== */
+    .scene{
+      position:relative;
+      min-height:100vh;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* ===== 모델 ===== */
+    .model{
+      position:absolute;
+      bottom:16px;
+      height:65%;
+      object-fit:contain;
+      z-index:3;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:-17%; }
+    .model.right{ right:68%; }
+    .model:hover{ transform:scale(1.03); }
+
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
+    }
+
+    .card{
+      background:transparent;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
+    }
+
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
+
+    .pItem figcaption{
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="model left">
+    <img class="model right" src="./images/실사모델배경제거2.png" alt="model right">
+
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
+
+    <div class="pItem" style="left:870px; top:-89px; width:200px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/pink cagole.png" alt="pink calgole">
+        <figcaption>pink cagole</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:1150px; top:-62px; width:180px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/city bag.png" alt="city bag">
+        <figcaption>city bag</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:896px; top:200px; width:150px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/bustier top.png" alt="bustier top">
+        <figcaption>bustier top</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:1150px; top:280px; width:170px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/tank top.png" alt="tank top">
+        <figcaption>tank top</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:900px; top:405px; width:150px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/blue denim skirt.png" alt="blue denim skirt">
+        <figcaption>blue denim skirt</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:900px; top:600px; width:150px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/patched skirt.png" alt="patched skirt">
+        <figcaption>patched skirt</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:1150px; top:520px; width:185px;">
+      <div class="card">
+        <img src="./images/entry9-balenciaga/logo denim pants.png" alt="logo denim pants">
+        <figcaption>logo denim skirt</figcaption>
+      </div>
+    </div>
+
+     <div class="pItem" style="left:380px; top:30px; width:450px;">
+      <a href="https://www.youtube.com/watch?v=NTXbCdS5hdY" target="_blank">
+        <img src="./images/entry9-balenciaga/show.png" alt="Winter 22 Collection" style="cursor:pointer;">
+      </a>
+    </div>
+
+     <div class="pItem" style="left:530px; top:650px; width:150px;">
+      <a href="https://www.balenciaga.com/en-kr?ad=RSA&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=KR%7CEN%7CSRC%7CBrand+Pure%7CBrand%7CU%7CPure_Exact&utm_id=1041585503&gclsrc=aw.ds&gad_source=1&gad_campaignid=1041585503&gbraid=0AAAAADmLG7-vgK1yvqL4VlnBFK9jziGuC&gclid=Cj0KCQiArOvIBhDLARIsAPwJXOaz3TvoZ0y83Q9SSqp0Ra54dFBQs794i1x9V5yOCMnwW39ArrcscocaApDpEALw_wcB" target="_blank">
+        <img src="./images/entry9-balenciaga/logo.png" alt="Winter 22 Collection" style="cursor:pointer;">
+        <figcaption>online store</figcaption>
+      </a>
+    </div>
+
+  </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
+</body>
+</html>
+
+ 
