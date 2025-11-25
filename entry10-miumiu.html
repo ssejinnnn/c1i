@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entry 9 – Balenciaga Board</title>
+
+  <style>
+    :root{
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
+    }
+    *{ box-sizing:border-box; }
+
+    html,body{
+      height:100%;
+      margin:0;
+    }
+
+    body{
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry10-miumiu/bg3.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
+
+    /* ===== 전체 레이아웃 ===== */
+    .scene{
+      position:relative;
+      min-height:100vh;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* ===== 모델 ===== */
+    .model{
+      position:absolute;
+      bottom:115px;
+      height:65%;
+      object-fit:contain;
+      z-index:3;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:-10%; }
+    .model:hover{ transform:scale(1.03); }
+
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
+    }
+
+    .card{
+      background:transparent;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
+    }
+
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
+
+    .pItem figcaption{
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="model left">
+   
+
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
+
+    <div class="pItem" style="left:800px; top:110px; width:199px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/polo mini dress.png" alt="polo mini dress">
+        <figcaption>polo mini dress</figcaption>
+      </div>
+    </div>
+
+     <div class="pItem" style="left:980px; top:300px; width:179px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/pleated mini skirt.png" alt="pleated skirt">
+        <figcaption>pleated skirt</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:980px; top:70px; width:179px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/striped shirt.png" alt="striped shirt">
+        <figcaption>striped shirt</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:1170px; top:40px; width:150px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/city bag.png" alt="city bag">
+      </figcaption>
+      </div>
+    </div>
+
+     <div class="pItem" style="left:1170px; top:120px; width:150px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/leather mini bag.png" alt="city bag">
+      </figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:1160px; top:280px; width:180px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/satin mini dress.png" alt="satin mini dress">
+        <figcaption>satin mini dress</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:800px; top:470px; width:200px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/pleat mini dress.png" alt="pleat dress">
+        <figcaption>pleat dress</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:980px; top:550px; width:170px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/wool mini skirt.png" alt="wool skirt">
+        <figcaption>wool skirt</figcaption>
+      </div>
+    </div>
+
+ <div class="pItem" style="left:1170px; top:530px; width:135px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/blue mini bag.png" alt="canvas bag">
+     </figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:1170px; top:650px; width:135px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/canvas bag.png" alt="canvas bag">
+     </figcaption>
+      </div>
+    </div>
+
+     <div class="pItem" style="left:300px; top:70px; width:150px;">
+      <a href="https://www.youtube.com/watch?v=o2YEUcZeKJE" target="_blank">
+        <img src="./images/entry10-miumiu/show.png" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>Miu Miu|Fall/Winter2023</figcaption>
+     </a>
+    </div>
+
+     <div class="pItem" style="left:640px; top:70px; width:85px;">
+      <a href="https://www.miumiu.com/us/en.html?utm_campaign=GoogleSearch_US&utm_medium=CPC&utm_source=Google&utm_content=Pure_Brand_Exact&s_kwcid=AL!8549!3!785084473623!e!!g!!miumiu&gclsrc=aw.ds&gad_source=1&gad_campaignid=970202367&gbraid=0AAAAADjs515UiuXDW6YBp2Excxu_iRqVA&gclid=Cj0KCQiAxJXJBhD_ARIsAH_JGjiDEkN5bZWPBoSPW599e2d7gzISgFkPynzTS5fLYwu3qxnivmL8IX0aAu3QEALw_wcB" target="_blank">
+        <img src="./images/entry10-miumiu/logo.jpg" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>online store</figcaption>
+      </a>
+    </div>
+
+  </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
+</body>
+</html>
+
+ 
