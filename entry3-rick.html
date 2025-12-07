@@ -1,91 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rick Owens — Entry 3</title>
+  <title>Entry 9 – Balenciaga Board</title>
+
   <style>
     :root{
-      --ink:#1b1b1b; --muted:#6b6b6b; --line:#d5cfcb; --card:#ffffffcc;
-      --radius:16px;
+      --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
+      --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{ 
+    *{ box-sizing:border-box; }
 
-      margin:0; color:var(--ink);
-      font: 400 16px/1.55 ui-sans-serif, -apple-system,"Segoe UI",Roboto,Helvetica,Arial;
-      /* 배경이미지: 네가 쓰는 배경으로 바꿔도 OK */
-      background: url("./images/entry3-rick/rick bg.png") center/cover fixed no-repeat;
+    html,body{
+      height:100%;
+      margin:0;
     }
-    .wrap{max-width:1200px; margin:24px auto 48px; padding:0 20px}
 
-    /* 상단 바 / 브랜드 제목 */
-    .
+    body{
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry3-rick/rick bg.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
     }
-    .navbtn{display:grid; place-items:center; width:40px; height:40px; border-radius:999px;
-      border:1.5px solid var(--ink); background:#fff; text-decoration:none; color:var(--ink);}
-    
-    /* 메인 레이아웃 */
-    .stage{display:grid; grid-template-columns:1fr 1fr 1.2fr 1fr 1fr; gap:24px; align-items:start}
+
+    /* ===== 전체 레이아웃 ===== */
+    .scene{
+      position:relative;
+      min-height:100vh;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* ===== 모델 ===== */
+    .model{
+      position:absolute;
+      bottom:115px;
+      height:65%;
+      object-fit:contain;
+      z-index:3;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:35%; }
+    .model:hover{ transform:scale(1.03); }
+
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
+    }
+
     .card{
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(213,207,203,.6);
-      border-radius:14px; padding:18px; backdrop-filter: blur(6px);
-      display:grid; justify-items:center; gap:10px;
+      background:transparent;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
     }
-    .card img{max-width:240px; width:100%; height:auto; object-fit:contain; display:block}
-    .card figcaption{font-size:14px; color:#333; text-align:center}
 
-    /* 중앙 모델 */
-    .hero{display:grid; justify-items:center; align-items:start}
-    .hero img{height:520px; width:auto; object-fit:contain; display:block}
-    .label {margin-top:8px; font-size:16px; color:#333}
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
 
-    /* 반응형 */
-    @media (max-width:900px){
-      .stage{grid-template-columns:1fr; }
-      .hero img{height:420px}
+    .pItem figcaption{
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="top">
-      <a class="navbtn" href="./index.html" aria-label="Back">←</a>
-      <div class="brand">Rick Owens</div>
-      <a class="navbtn" href="#" aria-label="Next">→</a>
+  <div class="scene">
+
+    
+   
+
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
+
+    <div class="pItem" style="left:460px; top:420px; width:289px;position:absolute; z-index:0;">
+      <div class="card">
+        <img src="./images/entry3-rick/book.png" alt="polo mini dress">
+        <figcaption>
+      </div>
     </div>
 
-    <main class="stage">
-      <!-- 좌측 카드들 -->
-      <figure class="card">
-        <img src="./images/entry3-rick/Tour Hoodie Jacket.png" alt="Rick Owens hoodie">
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델배경제거2.png"  alt="model left">
+    
+
+     <div class="pItem" style="left:-170px; top:180px; width:400px;">
+      <div class="card">
+        <img src="./images/entry3-rick/영수증1.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+      <div class="pItem" style="left:150px; top:180px; width:400px;">
+      <div class="card">
+        <img src="./images/entry3-rick/영수증2.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+
+     <div class="pItem" style="left:660px; top:180px; width:400px;">
+      <div class="card">
+        <img src="./images/entry3-rick/영수증1.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+          <div class="pItem" style="left:1000px; top:180px; width:400px;">
+      <div class="card">
+        <img src="./images/entry3-rick/영수증2.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+  
+
+      <div class="pItem" style="left:186px; top:270px; width:360px;">
+      <div class="card">
+        <img src="./images/entry3-rick/Bolan Cargo.png" alt="Bolan Cargo">
+        <figcaption>Bolan Cargot</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:-116px; top:270px; width:300px;">
+      <div class="card">
+        <img src="./images/entry3-rick/Tour Hoodie Jacket.png" alt="Tour Hoodie Jacket">
         <figcaption>Tour Hoodie Jacket</figcaption>
-      </figure>
+      </div>
+    </div>
 
-      <figure class="card">
-        <img src="./images/entry3-rick/Bolan Cargo.png" alt="Rick Owens pants">
-        <figcaption>Bolon Cargo</figcaption>
-      </figure>
-
-      <!-- 중앙 모델 -->
-      <section class="hero">
-        <img src="./images/실사모델3배경제거.png" alt="Rick Owens look">
-        <div class="label"></div>
-      </section>
-
-      <!-- 우측 카드들 -->
-      <figure class="card">
-        <img src="./images/entry3-rick/Spider Tank.png" alt="Rick Owens tank">
+      <div class="pItem" style="left:756px; top:330px; width:200px;">
+      <div class="card">
+        <img src="./images/entry3-rick/Spider Tank.png" alt="Spider Tank">
         <figcaption>Spider Tank</figcaption>
-      </figure>
+      </div>
+    </div>
 
-      <figure class="card">
-        <img src="./images/entry3-rick/Fogpocket Outershirt.png" alt="Rick Owens overshirt">
-        <figcaption>Fogpocket Overshirt</figcaption>
-      </figure>
-    </main>
-  </div>
+    <div class="pItem" style="left:1050px; top:280px; width:300px;">
+      <div class="card">
+        <img src="./images/entry3-rick/Fogpocket Outershirt.png" alt="Fogpocket Outershirt">
+        <figcaption>Fogpocket Outershirt</figcaption>
+      </div>
+    </div>
+
+
+     <div class="pItem" style="left:100px; top:50px; width:150px;">
+      <a href="https://www.youtube.com/watch?v=o2YEUcZeKJE" target="_blank">
+        <img src="./images/entry3-rick/rickshow.png" alt="RICK OWENS SS25 MENS HOLLYWOOD" style="cursor:pointer;">
+        <figcaption>RICK OWENS SS25 MENS HOLLYWOOD</figcaption>
+     </a>
+    </div>
+
+     <div class="pItem" style="left:970px; top:70px; width:85px;">
+      <a href="https://www.rickowens.eu/en/KR" target="_blank">
+        <img src="./images/entry3-rick/logo.jpg" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>online store</figcaption>
+      </a>
+    </div>
+
+  </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
 </body>
 </html>
+
+ 
