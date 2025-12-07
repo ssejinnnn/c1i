@@ -19,192 +19,164 @@
   /* 레이아웃 */
   .scene{ position:relative; min-height:100vh; width:100%; max-width:1200px; margin:0 auto; }
   .model{
-    position:absolute; left:38%; bottom:37px;
-    height:65%; object-fit:contain;
+    position:absolute; left:36%; bottom:85px;
+    height:59%; object-fit:contain;
     z-index:5; transition:transform .3s ease;
   }
   .model:hover{ transform:scale(1.03); }
 
-  /* 오른쪽 포스터 영역 */
-  .posterBox{
-    position:absolute; right:0; top:0; width:42vw; height:100vh;
-    pointer-events:auto; /* 클릭 가능 */
-  }
-  .pItem{
-    position:absolute;
-    left:var(--x); top:var(--y); width:var(--w);
-    text-align:center; z-index:10; pointer-events:auto;
-  }
-  .card{
-    background:transparent; /* ← 세미콜론 중요 */
-    border:1px solid rgba(0,0,0,.08);
-    border-radius:12px; padding:12px;
-    transition:transform .2s ease, filter .2s ease;
-  }
-  .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
-  .pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
-  .pItem figcaption{
-    margin-top:8px; font-size:12px; background:#eee8dc; color:#333;
-    padding:6px 10px; border-radius:999px; display:inline-block;
-  }
+  /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
+    }
 
-  /* (옵션) 빠르게 상태 확인용 버튼 */
-  .tools{ position:fixed; right:12px; bottom:12px; display:flex; gap:8px; }
-  .tools button{ padding:8px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; cursor:pointer; }
-</style>
+    .card{
+      background:transparent;
+      border:0px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
+    }
+
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
+
+    
+  </style>
 </head>
+
 <body>
+  <div class="scene">
 
-<div class="scene">
-  <!-- 모델 -->
-  <img class="model" src="./images/실사모델배경제거2.png" alt="model">
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델배경제거2.png"  alt="model left">
+   
 
-  <!-- 상품 카드들 -->
-  <div class="posterBox" id="poster">
-    <!-- 예시 1: Burberry 스웨터 (클릭 → 지정 좌표로 이동/복귀) -->
-    <div class="pItem" style="--x:-97.5%; --y:30%; --w:34%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Wool Cashmere Sweater.png"
-          alt="Wool Cashmere Sweater"
-          data-target-x="-10" data-target-y="35" data-target-w="37"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
+
+
+    <div class="pItem" style="left:-23px; top:290px; width:160px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Wool Cashmere Sweater.png" alt="polo mini dress">
+        <figcaption>
+      </div>
     </div>
 
-    <!-- 예시 2~3: 다른 카드(원하면 data-target-* 추가해서 같은 방식으로 사용) -->
-    <div class="pItem" style="--x:-64%; --y:32%; --w:34%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Nova Check Belted Mini Skirt.png"
-          alt="Nova Check Belted Mini Skirt"
-          data-target-x="-8.5" data-target-y="52" data-target-w="34"
-          onclick="moveToTarget(this)"
-        >
+     <div class="pItem" style="left:200px; top:310px; width:135px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Nova Check Belted Mini Skirt.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:-20px; top:570px; width:149px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Petit Rose Beige Logo Nylon Tote bag.png" alt="Petit Rose Beige Logo Nylon Tote bag">
+        <figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:185px; top:560px; width:170px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Cropped Gabardine Trench Jacket.png" alt="city bag">
       </figcaption>
-      </figure>
+      </div>
     </div>
 
-    <div class="pItem" style="--x:-98%; --y:66%; --w:35%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Petit Rose Beige Logo Nylon Tote bag.png"
-          alt="Petit Rose Beige Logo Nylon Tote bag"
-          data-target-x="-16" data-target-y="62" data-target-w="35"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
-    </div>
-    <div class="pItem" style="--x:-65%; --y:64%; --w:37%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Cropped Gabardine Trench Jacket.png"
-          alt="Cropped Gabardine Trench Jacket"
-          data-target-x="-11" data-target-y="35" data-target-w="39"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
-    </div>
-    </div>
-    <div class="pItem" style="--x:64%; --y:30%; --w:18%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Check Medium Tote.png"
-          alt="Check Medium Totet"
-          data-target-x="39" data-target-y="62" data-target-w="18"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
-    </div>
-    <div class="pItem" style="--x:81%; --y:33%; --w:18%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Pink Cotton Sweatshirt.png"
-          alt="Pink Cotton Sweatshirt"
-          data-target-x="41.5" data-target-y="36" data-target-w="20.5"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-    <div class="pItem" style="--x:60.5%; --y:64.5%; --w:15%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Polyester Sweater.png"
-          alt="Polyester Sweater"
-          data-target-x="43" data-target-y="36" data-target-w="17"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
-    </div>
-   <div class="pItem" style="--x:75%; --y:68%; --w:14%;">
-      <figure class="card">
-        <img
-          src="./images/entry2-burberry/Dalby Check Sport Top.png"
-          alt="Dalby Check Sport Top"
-          data-target-x="45" data-target-y="37" data-target-w="13"
-          onclick="moveToTarget(this)"
-        >
-        </figcaption>
-      </figure>
+     <div class="pItem" style="left:810px; top:300px; width:140px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Check Medium Tote.png" alt="Check Medium Tote">
+      </figcaption>
+      </div>
     </div>
 
-<!-- (옵션) 전체 리셋 버튼 -->
-<div class="tools">
-  <button onclick="resetAll()">Reset All</button>
-</div>
 
-<script>
-  // 클릭한 카드 IMG → data-target 좌표로 이동 / 다시 클릭하면 원위치 복귀 (토글)
-  function moveToTarget(img){
-    const item = img.closest('.pItem');
+    <div class="pItem" style="left:795px; top:555px; width:160px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Polyester Sweater.png" alt="/Polyester Sweater">
+        <figcaption>
+      </div>
+    </div>
 
-    // 원래 좌표 저장 (처음 한 번만)
-    if (!img.dataset.originX) {
-      const cs = getComputedStyle(item);
-      img.dataset.originX = parseFloat(cs.getPropertyValue('--x')) || 0;
-      img.dataset.originY = parseFloat(cs.getPropertyValue('--y')) || 0;
-      img.dataset.originW = parseFloat(cs.getPropertyValue('--w')) || 0;
-    }
 
-    // 이동되어 있으면 원위치로
-    if (img.dataset.moved === '1') {
-      item.style.setProperty('--x', img.dataset.originX + '%');
-      item.style.setProperty('--y', img.dataset.originY + '%');
-      item.style.setProperty('--w', img.dataset.originW + '%');
-      img.dataset.moved = '0';
-      return;
-    }
+    <div class="pItem" style="left:1005px; top:290px; width:160px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Pink Cotton Sweatshirt.png" alt="Pink Cotton Sweatshirtt">
+        <figcaption>
+      </div>
+    </div>
 
-    // 목표 좌표로 이동
-    const x = img.dataset.targetX, y = img.dataset.targetY, w = img.dataset.targetW;
-    if (x != null) item.style.setProperty('--x', x + '%');
-    if (y != null) item.style.setProperty('--y', y + '%');
-    if (w != null) item.style.setProperty('--w', w + '%');
-    img.dataset.moved = '1';
-  }
+ <div class="pItem" style="left:1035px; top:600px; width:105px;">
+      <div class="card">
+        <img src="./images/entry2-burberry/Dalby Check Sport Top.png" alt="Dalby Check Sport Top">
+     </figcaption>
+      </div>
+    </div>
 
-  // (옵션) 모든 카드 원위치 복귀
-  function resetAll(){
-    document.querySelectorAll('.posterBox .pItem').forEach(item=>{
-      // origin 저장된 IMG가 있으면 복원
-      const img = item.querySelector('img');
-      if (img && img.dataset.originX) {
-        item.style.setProperty('--x', img.dataset.originX + '%');
-        item.style.setProperty('--y', img.dataset.originY + '%');
-        item.style.setProperty('--w', img.dataset.originW + '%');
-        img.dataset.moved = '0';
-      }
+    <div class="pItem" style="left:1170px; top:650px; width:135px;">
+      <div class="card">
+        <img src="./images/entry10-miumiu/canvas bag.png" alt="canvas bag">
+     </figcaption>
+      </div>
+    </div>
+
+    
+
+  </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
     });
-  }
-</script>
-
+  </script>
 </body>
 </html>
+
+ 
