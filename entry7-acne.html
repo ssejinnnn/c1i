@@ -3,16 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Entry6 — Prada</title>
+  <title>Entry 9 – Balenciaga Board</title>
+
   <style>
     :root{
       --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
       --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
     }
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{
+    *{ box-sizing:border-box; }
+
+    html,body{
+      height:100%;
       margin:0;
+    }
+
+    body{
       color:var(--ink);
       font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
       background-image:url('./images/entry7-acne/acne.bg.png');
@@ -22,7 +27,7 @@
       background-attachment:fixed;
     }
 
-    /* 레이아웃 */
+    /* ===== 전체 레이아웃 ===== */
     .scene{
       position:relative;
       min-height:100vh;
@@ -31,101 +36,166 @@
       margin:0 auto;
     }
 
-    /* 모델 */
+    /* ===== 모델 ===== */
     .model{
       position:absolute;
-      bottom:240px;
-      height:54%;
+      bottom:238px;
+      height:56%;
       object-fit:contain;
-      z-index:5;
+      z-index:7;
       transition:transform .3s ease;
     }
-    .model.left{ left:-7%; }     /* 왼쪽 모델 위치 */
-    .model.right{ right:57%; }   /* 오른쪽 모델 위치 */
+    .model.left{ left:-7%; }
+    .model.right{ right:78%; }
     .model:hover{ transform:scale(1.03); }
 
-    /* 오른쪽 포스터 영역 */
-    .posterBox{
-      position:absolute; right:0; top:0;
-      width:42vw; height:100vh;
-      pointer-events:none; /* 포스터 자체 클릭 방지 */
-    }
-
-    /* 아이템 카드 */
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
     .pItem{
       position:absolute;
-      left:var(--x); top:var(--y); width:var(--w);
-      text-align:center; z-index:10; pointer-events:auto;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
     }
-    .pItem .card{
-      background:transparent; /* ← 세미콜론 추가 */
+
+    .card{
+      background:transparent;
       border:1px solid rgba(0,0,0,.08);
-      border-radius:12px; padding:12px;
-      transition:transform .2s ease, filter .2s ease;
+      border-radius:12px;
+      padding:12px;
     }
-    .pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
-    .pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
+
     .pItem figcaption{
-      margin-top:8px; font-size:12px; background:#eee8dc; color:#333;
-      padding:6px 10px; border-radius:999px; display:inline-block;
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
     }
   </style>
 </head>
+
 <body>
   <div class="scene">
+
     <!-- 모델 -->
-    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
-   
-    <!-- 포스터 + 아이템들 -->
-    <div class="posterBox">
-      <div class="pItem" style="--x:60.2%; --y:45%;   --w:30%;">
-        <div class="card">
-          <img src="./images/entry7-acne/satin top.png" alt="satin top">
-          <figcaption>satin top</figcaption>
-        </div>
-      </div>
+   <img class="model left" src="./images/실사모델3배경제거.png" 
+     alt="model left"
+     style="position:absolute; z-index:-1;">
 
-      <div class="pItem" style="--x:84%; --y:10%; --w:29%;">
-        <div class="card">
-          <img src="./images/entry7-acne/grey silk blouse.png" alt="grey silk blouse">
-          <figcaption>grey silk blouse</figcaption>
-        </div>
-      </div>
 
-      <div class="pItem" style="--x:65%; --y:29%; --w:21%;">
-        <div class="card">
-          <img src="./images/entry7-acne/Denim Shorts.png" alt="Denim Shorts">
-          <figcaption>Denim Shorts</figcaption>
-        </div>
-      </div>
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
 
-      <div class="pItem" style="--x:65%; --y:10.5%; --w:20%;">
-        <div class="card">
-          <img src="./images/entry7-acne/Tote Bag.png" alt="Tote Bag">
-          <figcaption>Tote Bag</figcaption>
-        </div>
-      </div>
+  
 
-      <div class="pItem" style="--x:76%; --y:37%; --w:48%;">
-        <div class="card">
-          <img src="./images/entry7-acne/satin minidress.png" alt="satin minidress">
-          <figcaption>satin minidress</figcaption>
-        </div>
+       <div class="pItem" style="left:970px; top:90px; width:130px;">
+      <div class="card">
+        <img src="./images/entry7-acne/Tote Bag.png" alt="silver mini bag">
+        <figcaption>Tote Bag</figcaption>
       </div>
-        <div class="pItem" style="--x:-90%; --y:85%; --w:31%;">
-    <a href="https://www.youtube.com/watch?v=cUB3JCM1Fbs" target="_blank">
-      <img src="./images/entry7-acne/acne.show.png" alt=" F/W 2025">
-    </a>
-  </div>
-</div>
-  <div class="pItem" style="--x:90%; --y:87%; --w:7%;">
-    <a href="https://www.acnestudios.com/us/en/woman/new-arrivals/?utm_source=google&utm_medium=cpc&dema_id=2051532841&utm_content=75538443314&utm_term=acne%20studios&gadid=629682030395&gad_source=1&gad_campaignid=2051532841&gbraid=0AAAAADAkw6EqH1CRR9wGWc6GsxTp6JDhI&gclid=Cj0KCQiA5abIBhCaARIsAM3-zFWSpjEFaiQXLcdUh-w-yo_bWMfxDzBQ_RELqEYWVrl_mAR6OjbdhsAaAv9EEALw_wcB" target="_blank">
-      <img src="./images/entry7-acne/logo.png" alt="acne wrbsite">
-    </a>
-  </div>
-</div>
+    </div>
+
+
+       <div class="pItem" style="left:970px; top:230px; width:150px;">
+      <div class="card">
+        <img src="./images/entry7-acne/Denim Shorts.png" alt="Denim Shorts">
+        <figcaption>Denim Shorts</figcaption>
       </div>
-    </div><!-- /.posterBox -->
+    </div>
+
+
+       <div class="pItem" style="left:970px; top:430px; width:185px;">
+      <div class="card">
+        <img src="./images/entry7-acne/grey silk blouse.png" alt="grey silk blouse">
+        <figcaption>grey silk blouse</figcaption>
+      </div>
+    </div>
+
+    <div class="pItem" style="left:1100px; top:390px; width:195px;">
+      <div class="card">
+        <img src="./images/entry7-acne/satin top.png" alt="satin top">
+        <figcaption>satin top</figcaption>
+      </div>
+    </div>
+    
+      <div class="pItem" style="left:1050px; top:80px; width:290px;">
+      <div class="card">
+        <img src="./images/entry7-acne/satin minidress.png" alt="satin minidress">
+        <figcaption>satin minidress</figcaption>
+      </div>
+    </div>
+    
+       <div class="pItem" style="left:-10px; top:690px; width:170px;">
+      <a href="https://www.youtube.com/watch?v=cUB3JCM1Fbs" target="_blank">
+        <img src="./images/entry7-acne/acne.show.png" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>Acne Studios Women’s Spring Summer 2025 Show</figcaption>
+     </a>
+    </div>
+
+     <div class="pItem" style="left:1100px; top:710px; width:90px;">
+      <a href="https://www.acnestudios.com/us/en/home?srsltid=AfmBOoqF0Ot66jRPNvlXfA06oFHvpTGRazNUijDtCSRpZMTlRUXY5gMK" target="_blank">
+        <img src="./images/entry7-acne/logo.png" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>online store</figcaption>
+     </a>
+    </div>
+
   </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
 </body>
 </html>
+
+ 
