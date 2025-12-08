@@ -3,16 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title><entry8-jacquemus></entry8-jacquemus></title>
+  <title>Entry 9 – Balenciaga Board</title>
+
   <style>
     :root{
       --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
       --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
     }
-    *{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{
+    *{ box-sizing:border-box; }
+
+    html,body{
+      height:100%;
       margin:0;
+    }
+
+    body{
       color:var(--ink);
       font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
       background-image:url('./images/entry8-jacquemus/bg.png');
@@ -22,7 +27,7 @@
       background-attachment:fixed;
     }
 
-    /* 레이아웃 */
+    /* ===== 전체 레이아웃 ===== */
     .scene{
       position:relative;
       min-height:100vh;
@@ -31,112 +36,174 @@
       margin:0 auto;
     }
 
-    /* 모델 */
+    /* ===== 모델 ===== */
     .model{
       position:absolute;
-      bottom:200px;
-      height:54%;
+      bottom:185px;
+      height:60%;
       object-fit:contain;
-      z-index:5;
+      z-index:3;
       transition:transform .3s ease;
     }
-    .model.left{ left:-7%; }     /* 왼쪽 모델 위치 */
-    .model.right{ right:57%; }   /* 오른쪽 모델 위치 */
+    .model.left{ left:-7.5%; }
     .model:hover{ transform:scale(1.03); }
 
-    /* 오른쪽 포스터 영역 */
-    .posterBox{
-      position:absolute; right:0; top:0;
-      width:42vw; height:100vh;
-      pointer-events:none; /* 포스터 자체 클릭 방지 */
-    }
-
-    /* 아이템 카드 */
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
     .pItem{
       position:absolute;
-      left:var(--x); top:var(--y); width:var(--w);
-      text-align:center; z-index:10; pointer-events:auto;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
     }
-    .pItem .card{
-      background:transparent; /* ← 세미콜론 추가 */
+
+    .card{
+      background:transparent;
       border:1px solid rgba(0,0,0,.08);
-      border-radius:12px; padding:12px;
-      transition:transform .2s ease, filter .2s ease;
+      border-radius:12px;
+      padding:12px;
     }
-    .pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
-    .pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
+
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
+
     .pItem figcaption{
-      margin-top:8px; font-size:12px; background:#eee8dc; color:#333;
-      padding:6px 10px; border-radius:999px; display:inline-block;
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
     }
   </style>
 </head>
+
 <body>
   <div class="scene">
+
     <!-- 모델 -->
-    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="model left">
    
-    <!-- 포스터 + 아이템들 -->
-    <div class="posterBox">
-      <div class="pItem" style="--x:66.2%; --y:72%;   --w:20%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/bag1.png" alt="bag1">
-          </figcaption>
-        </div>
-      </div>
 
-      <div class="pItem" style="--x:90%; --y:26%; --w:17%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/denim top.png" alt="denim top">
-          <figcaption>denim top</figcaption>
-        </div>
-      </div>
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
 
-      <div class="pItem" style="--x:65%; --y:40%; --w:23%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/striped top.png" alt="striped top">
-          <figcaption>striped top</figcaption>
-        </div>
+    <div class="pItem" style="left:1165px; top:65px; width:139px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/bag1.png" alt="polo mini dress">
+        <figcaption>
       </div>
+    </div>
 
-      <div class="pItem" style="--x:62%; --y:10.5%; --w:27%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/draped skirt.png" alt="draped skirt">
-          <figcaption>draped skirt</figcaption>
-        </div>
+    <div class="pItem" style="left:1185px; top:230px; width:109px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/denim top.png" alt="denim top">
+        <figcaption>denim top</figcaption>
       </div>
+    </div>
 
-      <div class="pItem" style="--x:76%; --y:37%; --w:48%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/spiaggia dress.png" alt="spiaggia dress">
-          <figcaption>sspiaggia dress</figcaption>
-        </div>
-
-          <div class="pItem" style="--x:26%; --y:-50%; --w:40%;">
-        <div class="card">
-          <img src="./images/entry8-jacquemus/bag2.png" alt="bag2">
-          </figcaption>
-        </div>
+     <div class="pItem" style="left:1095px; top:380px; width:290px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/spiaggia dress.png" alt="spiaggia dress">
+        <figcaption>spiaggia dress</figcaption>
       </div>
+    </div>
 
+    <div class="pItem" style="left:965px; top:65px; width:189px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/draped skirt.png" alt="polo mini dress">
+         <figcaption>draped skirt</figcaption>
       </div>
-        <div class="pItem" style="--x:-9%; --y:70%; --w:31%;">
-    <a href="https://www.youtube.com/watch?v=u5D7qPC_wGQ" target="_blank">
-      <img src="./images/entry8-jacquemus/show.png" alt=" F/W 2025">
-    </a>
-  </div>
-</div>
+    </div>
 
+     <div class="pItem" style="left:980px; top:340px; width:139px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/striped top.png" alt="pleated skirt">
+        <figcaption>striped top</figcaption>
       </div>
-        <div class="pItem" style="--x:12%; --y:7%; --w:5%;">
-    <a href="https://www.jacquemus.com/en_us/fall-winter-25-new-in-women" target="_blank">
-      <img src="./images/entry8-jacquemus/banana.jpeg" alt=" F/W 2025">
-    </a>
-  </div>
-</div>
+    </div>
 
+    <div class="pItem" style="left:980px; top:570px; width:129px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/bag2.png" alt="pleated skirt">
+        <figcaption>
       </div>
-    </div><!-- /.posterBox -->
+    </div>
+
+    <div class="pItem" style="left:982px; top:670px; width:129px;">
+      <div class="card">
+        <img src="./images/entry8-jacquemus/bag3.png" alt="pleated skirt">
+        <figcaption>
+      </div>
+    </div>
+
+    <
+     <div class="pItem" style="left:460px; top:500px; width:300px;">
+      <a href="https://www.youtube.com/watch?v=QlsT9rW4Jv0" target="_blank">
+        <img src="./images/entry8-jacquemus/show.png" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>Jacquemus Fall/Winter 2023/24</figcaption>
+     </a>
+    </div>
+
+     <div class="pItem" style="left:560px; top:70px; width:85px;">
+      <a href="https://www.jacquemus.com/en_kr" target="_blank">
+        <img src="./images/entry8-jacquemus/banana.jpeg" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>online store</figcaption>
+      </a>
+    </div>
+
   </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
 </body>
 </html>
+
+ 
