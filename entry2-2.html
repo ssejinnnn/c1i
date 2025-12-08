@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typewriter Screen</title>
+
+  <!-- CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image:url('./images/entry1 background.jpeg');
+      font-family: "Georgia", serif;
+    }
+
+    .container {
+      max-width: 800px;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .typewriter {
+      font-size: 24px;
+      line-height: 1.6;
+      color: #222;
+      margin-bottom: 28px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: #222;
+      margin-left: 3px;
+      animation: blink 0.8s infinite;
+    }
+
+    .cursor.done {
+      animation: none;
+      opacity: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .center-image {
+      width: 270px;
+      border-radius: 10px;
+      margin: 20px auto 40px;
+      display: block;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="typewriter">
+      <p id="typing-text"></p>
+      <span class="cursor"></span>
+    </div>
+
+    <img
+      class="center-image"
+      src="https://i.pinimg.com/736x/97/b7/b9/97b7b912873f6ff8f7d0c901313880c2.jpg"
+      alt="Center visual"
+    />
+
+    <div class="buttons">
+      <button id="homeBtn">HOME</button>
+      <button id="startBtn">START</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const text =
+      "Celebrate the festive season with pieces grounded in our heritage. Unmistakably Burberry, made to be gifted.";
+
+    const typingElement = document.getElementById("typing-text");
+    const cursorElement = document.querySelector(".cursor");
+
+    let index = 0;
+    const typingSpeed = 70;
+
+    function type() {
+      if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, typingSpeed);
+      } else {
+        cursorElement.classList.add("done");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+
+    /* GO TO entry2-burberry.html WHEN START BUTTON CLICKED */
+    document.getElementById("startBtn").onclick = () => {
+      window.location.href = "entry2 burberry.html";
+    };
+
+    /* HOME BUTTON ACTION (optional) */
+    document.getElementById("homeBtn").onclick = () => {
+     window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>
