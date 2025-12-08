@@ -1,191 +1,191 @@
-<!DOCTYPE html>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>entry4-thombrowne</title>
+  <title>Entry 9 – Balenciaga Board</title>
+
   <style>
     :root{
       --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
       --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-   body {
-  margin: 0; 
-  color: var(--ink); 
-  font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
-  
-  
-  background-image: url('./images/entry4-thombrowne/thom bg 2.png');
-  background-size: cover;          /* 화면 전체 채우기 */
-  background-position: center;     /* 가운데 정렬 */
-  background-repeat: no-repeat;    /* 반복 없음 */
-  background-attachment: fixed;    /* 스크롤해도 고정 */
-}
-}
+    *{ box-sizing:border-box; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    html,body{
+      height:100%;
+      margin:0;
     }
 
-    body {
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Helvetica", "Segoe UI", sans-serif;
-     
-
-    .frame {
-      display: flex;
-      width: 100%;
-      max-width: 1400px;
-      height: 100vh;
-      overflow: hidden;
+    body{
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry4-thombrowne/thom bg 2.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
     }
 
-    /* 왼쪽 영역 */
-    .left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 40px 20px;
-      position: relative;
+    /* ===== 전체 레이아웃 ===== */
+    .scene{
+      position:relative;
+      min-height:100vh;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    .left .item {
-      position: absolute;
-      text-align: center;
+    /* ===== 모델 ===== */
+    .model{
+      position:absolute;
+      bottom:15px;
+      height:75%;
+      object-fit:contain;
+      z-index:3;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:60%; }
+    .model:hover{ transform:scale(1.03); }
+
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
     }
 
-    /* 각 제품 위치 수동 조정 */
-    .skirt1 { top: -20px; left: 160px; }
-    .cardigan { top: 10px; left: 420px; }
-    .shirt { top: 250px; left: 160px; }
-    .bag { top: 250px; left: 420px; }
-    .skirt2 { top: 540px; left: 160px; }
-    .skirt3 { top: 540px; left: 420px; }
-
-    .item img {
-      width: 200px;
-      height: auto;
-      display: block;
-      margin-bottom: 4px;
+    .card{
+      background:transparent;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
     }
 
-    .item p {
-      font-size: 12px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 3px 6px;
-      border-radius: 4px;
-      display: inline-block;
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
     }
+    .pItem img:active{ cursor:grabbing; }
 
-    .brand-name {
-      position: absolute;
-      bottom: 30px;
-      font-size: 32px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
+    .pItem figcaption{
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
     }
-    .brand-name span {
-      display: block;
-      font-size: 20px;
-      font-weight: 400;
-      margin-top: 4px;
-    }
-
-    /* 오른쪽 영역 */
-    .right {
-      flex: 1;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }.right img.model {
-  width: 430px;
-  height: auto;
-  margin-bottom: -180px;
-    position: relative;
-   bottom: -50
-  left: -10%; /* 오른쪽으로 가운데쯤 */
-  transform: translateX(-50%);
-
-   
-      
- 
-
-\
-}
-    }
-
-    }
-   
-    }
-
-    /* 네비게이션 화살표 */
-    .arrow {
-      position: absolute;
-      top: 40px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      cursor: pointer;
-    }
-    .arrow.left { left: 30px; }
-    .arrow.right { right: 30px; }
-
   </style>
 </head>
 
 <body>
-  <div class="frame">
-    <!-- 왼쪽 -->
-    <div class="left">
-      <div class="item skirt1">
-        <img src="./images/entry4-thombrowne/ Hector-embroidery Corduroy Mini Skirt.png" alt="Hector Corduroy Mini Skirt">
-        <p>Hector-embroidery Corduroy Mini Skirt</p>
+  <div class="scene">
+
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델배경제거2.png"  alt="model left">
+   
+
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
+
+    <div class="pItem" style="left:60px; top:-20px; width:190px;">
+      <div class="card">
+        <img src="./images/entry4-thombrowne/ Hector-embroidery Corduroy Mini Skirt.png" alt="Hector-embroidery Corduroy Mini Skirt">
+        <figcaption>Hector-embroidery Corduroy Mini Skirt</figcaption>
       </div>
-      <div class="item cardigan">
+    </div>
+
+     <div class="pItem" style="left:340px; top:15px; width:225px;">
+      <div class="card">
         <img src="./images/entry4-thombrowne/4-Bar stripe cardigan.png" alt="4-Bar stripe cardigan">
-        <p>4-Bar stripe cardigan</p>
+        <figcaption>4-Bar stripe cardigan</figcaption>
       </div>
-      <div class="item shirt">
+    </div>
+
+    <div class="pItem" style="left:40px; top:230px; width:255px;">
+      <div class="card">
         <img src="./images/entry4-thombrowne/Cropped striped cotton-poplin shirt.png" alt="Cropped striped cotton-poplin shirt">
-        <p>Cropped striped cotton-poplin shirt</p>
+        <figcaption>Cropped striped cotton-poplin shirt</figcaption>
       </div>
-      <div class="item bag">
-        <img src="./images/entry4-thombrowne/Hector pebbled leather bag.png" alt="Hector pebbled leather bag">
-        <p>Hector pebbled leather bag</p>
+    </div>
+
+
+    <div class="pItem" style="left:360px; top:280px; width:180px;">
+      <div class="card">
+        <img src="./images/entry4-thombrowne/Hector pebbled leather bag.png" alt="hector pebbled leather bag">
+        <figcaption>hector pebbled leather bag</figcaption>
       </div>
-      <div class="item skirt2">
+    </div>
+
+
+    <div class="pItem" style="left:70px; top:550px; width:210px;">
+      <div class="card">
         <img src="./images/entry4-thombrowne/4 Bar Striped Pleated Mini Skirt.png" alt="4 Bar Striped Pleated Mini Skirt">
-        <p>4 Bar Striped Pleated Mini Skirt</p>
+        <figcaption>4 Bar Striped Pleated Mini Skirt</figcaption>
       </div>
-      <div class="item skirt3">
+    </div>
+
+      <div class="pItem" style="left:350px; top:550px; width:230px;">
+      <div class="card">
         <img src="./images/entry4-thombrowne/High Waisted Skirts.png" alt="High Waisted Skirts">
-        <p>High Waisted Skirts</p>
-      </div>
-
-      
+        <figcaption>High Waisted Skirtst</figcaption>
       </div>
     </div>
 
-    <!-- 오른쪽 -->
-    <div class="right">
-      <div class="arrow left">←</div>
-      <div class="arrow right">→</div>
+ 
+   
+  </div><!-- /.scene -->
 
-     
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
 
-      <img class="model" src="./images/실사모델배경제거2.png" alt="실사모델배경제거2" />
-    </div>
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
+</body>
+</html>
+
  
