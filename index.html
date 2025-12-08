@@ -51,7 +51,7 @@
     /* models */
     .stage{padding:0}
     .models{
-      display:grid; grid-template-columns:repeat(3,1fr);
+      display:grid; grid-template-columns:repeat(3, 1fr);
       gap:28px 18px; justify-items:center;
       background:rgba(255,255,255,.6);
       border:1px solid rgba(213,207,203,.6);
@@ -89,9 +89,9 @@
 
     /* small screens */
     @media (max-width:1000px){
-      .grid{grid-template-columns:1fr; }
+      .grid{grid-template-columns:3, 1fr; }
       .btns{justify-content:center}
-      .models{grid-template-columns:repeat(2,1fr)}
+      .models{grid-template-columns:repeat(3,1fr)}
     }
   </style>
 </head>
@@ -100,22 +100,12 @@
     <header>
       <div class="topbar">
         <div class="brand">THE<br>GLOW</div>
-        <nav>
-          <a href="#">CLOSET</a><a href="#">STYLE</a><a href="#">BRANDS</a><a href="#">MUSIC</a><a href="#">MY SHOWROOM</a>
-        </nav>
-        <a class="signin" href="#">SIGN IN</a>
+       
+        <a class="signin" href="#">SEJIN SONG</a>
       </div>
     </header>
 
-    <main class="grid">
-      <!-- left -->
-      <aside class="panel pick">
-        <h3>Today’s Pick</h3>
-        <div class="pick-box">
-          <img class="pick-img" src="./images/pick.png" alt="Trending look">
-          <div class="pick-ctrl"><span>←</span><span>TRENDING LOOK</span><span>→</span></div>
-        </div>
-      </aside>
+
 
       <!-- center -->
       <section class="stage">
@@ -146,44 +136,26 @@
           </figure>
 
           <figure class="model">
-            <a href="./entry7-acne.html" aria-label="acne 페이지 열기"><img src="./images/acne.png" alt="Acne Studios look">
+            <a href="./entry7-acne.html" aria-label="acne 페이지 열기"><img src="./images/acne.png" alt="Acne Studios look"></a>
             <figcaption>Acne Studios</figcaption>
           </figure>
 
           <figure class="model">
-          <a href="./entry8-jacquemus.html" aria-label="jacquemus 페이지 열기"><img src="./images/jacquemus.png" alt="jacquemus look">
+          <a href="./entry8-jacquemus.html" aria-label="jacquemus 페이지 열기"><img src="./images/jacquemus.png" alt="jacquemus look"></a>
             <figcaption>jacquemus</figcaption>
           </figure>
 
           <figure class="model">
-             <a href="./entry9-balenciaga.html" aria-label="balenciaga 페이지 열기"><img src="./images/balenciaga.png" alt="balenciaga look">
+             <a href="./entry9-balenciaga.html" aria-label="balenciaga 페이지 열기"><img src="./images/balenciaga.png" alt="balenciaga look"></a>
             <figcaption>Balenciaga</figcaption>
           </figure>
            
 
           <figure class="model">
-             <a href="./entry10-miumiu.html" aria-label="miumiu 페이지 열기"><img src="./images/miu.png" alt="miu look">
+             <a href="./entry10-miumiu.html" aria-label="miumiu 페이지 열기"><img src="./images/miu.png" alt="miu look"></a>
             <figcaption>MiuMiu</figcaption>
           </figure>
-          
 
-        <div class="player">
-          <div class="play"></div>
-          <div class="track"><span>Redbone</span><span>·</span><span>Childish Gambino</span></div>
-          <div class="progress"></div>
-        </div>
-      </section>
 
-      <!-- right -->
-      <aside class="panel cta">
-        <h2>Style<br>Your<br>World</h2>
-        <p>Create your own avatar, dress it up, and design a personal showroom</p>
-        <div class="btns">
-          <a class="btn" href="#">Start Styling</a>
-          <a class="btn ghost" href="#">Explore Closet</a>
-        </div>
-      </aside>
-    </main>
-  </div>
-</body>
-</html>
+
+     
