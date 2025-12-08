@@ -1,172 +1,225 @@
-<!DOCTYPE html>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>entry5-diesel</title>
+  <title>Entry 9 – Balenciaga Board</title>
+
   <style>
     :root{
       --bg:#f1ece9; --ink:#1b1b1b; --muted:#6b6b6b; --brand:#5d2547;
       --line:#d5cfcb; --card:#ffffffcc; --radius:16px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-   body {
-  margin: 0; 
-  color: var(--ink); 
-  font: 400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+    *{ box-sizing:border-box; }
 
+    html,body{
+      height:100%;
+      margin:0;
+    }
 
-  background-image: url('./images/entry6-prada/images/bg.png');
-  background-size: cover;          /* 화면 전체 채우기 */
-  background-position: center;     /* 가운데 정렬 */
-  background-repeat: no-repeat;    /* 반복 없음 */
-  background-attachment: fixed;    /* 스크롤해도 고정 */
-}
+    body{
+      color:var(--ink);
+      font:400 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background-image:url('./images/entry6-prada/images/bg.png');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+    }
 
-   /* 모델 배치 */
+    /* ===== 전체 레이아웃 ===== */
     .scene{
       position:relative;
-      min-height:100vh;      /* 화면 꽉 채우기 */
+      min-height:100vh;
       width:100%;
       max-width:1200px;
       margin:0 auto;
     }
-   .model {
-  position: absolute;
-  bottom: 2px;
-  height: 65%;               /* 🔽 크기 조정 */
-  object-fit: contain;
-  z-index: 5;
-  transition: transform 0.3s ease;
-}
 
-/* 위치 */
-.model.left { left: -6%; }     /* 🔽 왼쪽 모델 */
-.model.right { right: 57%; }  /* 🔽 오른쪽 모델 */
+    /* ===== 모델 ===== */
+    .model{
+      position:absolute;
+      bottom:30px;
+      height:65%;
+      object-fit:contain;
+      z-index:3;
+      transition:transform .3s ease;
+    }
+    .model.left{ left:22%; }
+    .model.right{ right:68%; }
+    .model:hover{ transform:scale(1.03); }
 
-/* 호버 시 살짝 확대 */
-.model:hover { transform: scale(1.03); }
+    /* ===== 아이템 카드 (라벨용, 제자리 유지) ===== */
+    .pItem{
+      position:absolute;
+      text-align:center;
+      z-index:5;
+      user-select:none;
+      width:220px;           /* 기본 폭, 필요하면 각자 style에서 덮어쓰기 */
+    }
 
-/* 오른쪽 포스터 위에 상품 이미지 얹기 */
-.posterBox{
-  position:absolute; right:0; top:0;
-  width:42vw;                 /* 오른쪽 영역 폭 */
-  height:100vh;
-  pointer-events:none;        /* 포스터 자체는 클릭 안 되게(선택) */
-}
-.pItem{
-  position:absolute;
-  left:var(--x); top:var(--y); width:var(--w);
-  text-align:center; z-index:10; pointer-events:auto;
-}
-.pItem .card{
-  background:transparent
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:12px; padding:12px;
-  transition:transform .2s ease, filter .2s ease;
-}
-.pItem .card:hover{ transform:scale(1.04); filter:drop-shadow(0 8px 12px rgba(0,0,0,.25)); }
-.pItem img{ width:100%; height:auto; display:block; object-fit:contain; }
-.pItem figcaption{ margin-top:8px; font-size:12px; background:#eee8dc; color:#333; padding:6px 10px; border-radius:999px; display:inline-block; }
+    .card{
+      background:transparent;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      padding:12px;
+    }
 
-  </style>
-<div class="videobox"></div>
-<left:var(--10); top:var(--10); width:var(--10);
+    .pItem img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:grab;           /* 이미지만 드래그 */
+      transition:filter .2s ease;
+    }
+    .pItem img:active{ cursor:grabbing; }
 
-
+    .pItem figcaption{
+      margin-top:8px;
+      font-size:12px;
+      background:#eee8dc;
+      color:#333;
+      padding:6px 10px;
+      border-radius:999px;
+      display:inline-block;
+    }
   </style>
 </head>
+
 <body>
   <div class="scene">
-  
-    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="실사모델3배경제거">
-    <img class="model right" src="./images/실사모델배경제거2.png" alt="실사모델배경제거2">
 
- 
-<div class="posterBox">
- 
-  
- 
+    <!-- 모델 -->
+    <img class="model left"  src="./images/실사모델3배경제거.png"  alt="model left">
+    <img class="model right" src="./images/실사모델배경제거2.png" alt="model right">
 
-  <!-- 상단 줄: denim / T-uffy / silver -->
-  
-         <div class="posterBox"></div>
-  </div>
-  <div class="pItem" style="--x:60.2%; --y:0%; --w:10%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/silver mini bag.png" alt="silver mini bag"><figcaption>silver mini bag</figcaption>
-    </div>
-    
-  </div>
-  <div class="pItem" style="--x:71%; --y:17%; --w:15%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/black skirt.png" alt="black skirt"><figcaption>black skirt</figcaption>
-    </div>
-    </div>
-  <div class="pItem" style="--x:72%; --y:44%; --w:14%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/prada cardigan.png" alt="prada cardigan"><figcaption>prada cardigan</figcaption>
-    </div>
-        </div>
-  <div class="pItem" style="--x:75%; --y:75%; --w:9%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/silver top.png" alt="silver top"><figcaption>silver top</figcaption>
-    </div>
-  </div>
-  <div class="pItem" style="--x:83%; --y:19%; --w:21.5%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/black dress.png" alt="black dress"><figcaption>black dress</figcaption>
-    </div>
-  </div>
-
-  <div class="pItem" style="--x:60%; --y:25%; --w:10%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/purple mini bag.png" alt="purple mini bag"><figcaption>purple mini bag</figcaption>
-    </div>
-  </div>
-    <div class="pItem" style="--x:60%; --y:50.5%; --w:10%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/blue mini bag.png" alt="blue mini bag"><figcaption>blue mini bag</figcaption>
-    </div>
-     </div>
-     <div class="pItem" style="--x:60%; --y:73%; --w:10%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/triangle mini bag.png" alt="triangle mini bag"><figcaption>triangle mini bag</figcaption>
-    </div>
-    </div>
-  <div class="pItem" style="--x:85%; --y:61%; --w:18%;">
-    <div class="card">
-      <img src="./images/entry6-prada/images/white dress.png" alt="white dress"><figcaption>white dress</figcaption>
-    </div>
-  
-\
-
-
-         
-  </video>
-</div>
-  
+    <!-- ===== 아이템들 (캡션은 제자리, 이미지만 움직임) ===== -->
+    <!-- 위치는 left/top px 값만 바꾸면 돼 -->
 
   
 
-
-
-
-        </figure>
+       <div class="pItem" style="left:680px; top:100px; width:130px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/silver mini bag.png" alt="silver mini bag">
+        <figcaption>silver mini bag</figcaption>
       </div>
-    </aside>
-  </div>
+    </div>
 
-  </div>
+    <div class="pItem" style="left:680px; top:270px; width:130px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/purple mini bag.png" alt="purple mini bag">
+        <figcaption>purple mini bag</figcaption>
+      </div>
+    </div>
 
-</div>
+      <div class="pItem" style="left:680px; top:447px; width:130px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/blue mini bag.png" alt="blue mini bag">
+        <figcaption>blue mini bag</figcaption>
+      </div>
+    </div>
 
+     <div class="pItem" style="left:680px; top:620px; width:130px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/triangle mini bag.png" alt="triangle mini bag">
+        <figcaption>triangle mini bag</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:800px; top:132px; width:205px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/black skirt.png" alt="black skirt">
+        <figcaption>black skirt</figcaption>
+      </div>
+    </div>
+
+
+
+    <div class="pItem" style="left:820px; top:370px; width:180px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/prada cardigan.png" alt="prada cardigan">
+        <figcaption>prada cardigan</figcaption>
+      </div>
+    </div>
+
+      <div class="pItem" style="left:810px; top:590px; width:205px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/prada stripe sweater.png" alt="stripe sweater">
+        <figcaption>stripe sweater</figcaption>
+      </div>
+    </div>
+
+
+ <div class="pItem" style="left:1000px; top:172px; width:285px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/black dress.png" alt="silver top">
+        <figcaption>black dress</figcaption>
+      </div>
+    </div>
+
+
+    <div class="pItem" style="left:1030px; top:550px; width:225px;">
+      <div class="card">
+        <img src="./images/entry6-prada/images/white dress.png" alt="white dress">
+        <figcaption>white dress</figcaption>
+      </div>
+    </div>
+
+       <div class="pItem" style="left:220px; top:40px; width:300px;">
+      <a href="https://www.youtube.com/watch?v=tSgW-WLEzJA" target="_blank">
+        <img src="./images/entry6-prada/images/show.png" alt="Miu Miu|Fall/Winter2023" style="cursor:pointer;">
+        <figcaption>Prada Fall/Winter 2025 Womenswear Show</figcaption>
+     </a>
+    </div>
+
+  
+
+  </div><!-- /.scene -->
+
+  <!-- ===== 드래그 스크립트 (이미지만 움직임) ===== -->
+  <script>
+    const scene = document.querySelector('.scene');
+
+    document.querySelectorAll('.pItem img').forEach(img => {
+
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+
+        const startX = e.clientX;
+        const startY = e.clientY;
+
+        // 이전까지 이동한 값 (없으면 0)
+        let currentX = parseFloat(img.dataset.tx || 0);
+        let currentY = parseFloat(img.dataset.ty || 0);
+
+        img.style.zIndex = 999;
+
+        function onMouseMove(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+
+          const tx = currentX + dx;
+          const ty = currentY + dy;
+
+          img.style.transform = `translate(${tx}px, ${ty}px)`;
+          img.dataset.tx = tx;
+          img.dataset.ty = ty;
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        document.addEventListener('mouseup', function stop() {
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', stop);
+        }, { once:true });
+      });
+
+      // 브라우저 기본 이미지 드래그 막기
+      img.ondragstart = () => false;
+    });
+  </script>
 </body>
 </html>
-
-
-
 
  
