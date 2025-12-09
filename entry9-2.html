@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sequential Image Reveal</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image:url('./images/entry1 background.jpeg');
+      background-size: cover;
+      font-family: "Georgia", serif;
+    }
+
+    .container {
+      max-width: 1000px;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .typewriter {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    /* === IMAGE ROW === */
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .image-box {
+      width: 280px;
+      height: 380px;
+      overflow: hidden;
+      border-radius: 10px;
+      opacity: 0;               /* start hidden */
+      transition: opacity 1s ease;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-box.show {
+      opacity: 1;               /* fade-in */
+    }
+
+    /* BUTTONS */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="typewriter">
+       "We take full accountability for our lack of oversight and control" - Balenciaga
+    </div>
+
+    <!-- IMAGE SEQUENCE -->
+    <div class="image-row">
+      <div class="image-box" id="img1">
+        <img src="https://i.pinimg.com/736x/a4/9b/8d/a49b8dae34dfea9fac0d41883e42ffe0.jpg">
+      </div>
+      <div class="image-box" id="img2">
+        <img src="https://i.pinimg.com/1200x/b3/b1/2b/b3b12bd06903799dc90d37b2ea7b4096.jpg">
+      </div>
+      <div class="image-box" id="img3">
+        <img src="https://i.pinimg.com/1200x/53/18/59/531859897bc4e6907df1fff6353c5adf.jpg">
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+      <button id="homeBtn">HOME</button>
+      <button id="startBtn">START</button>
+    </div>
+
+  </div>
+
+  <script>
+    // sequential reveal
+    setTimeout(() => document.getElementById("img1").classList.add("show"), 200); 
+    setTimeout(() => document.getElementById("img2").classList.add("show"), 1200);
+    setTimeout(() => document.getElementById("img3").classList.add("show"), 2200);
+
+    // BUTTON ACTIONS
+    document.getElementById("startBtn").onclick = () => {
+      window.location.href = "entry9-balenciaga.html";
+    };
+
+    document.getElementById("homeBtn").onclick = () => {
+      window.location.href = "index.html";
+    };
+  </script>
+
+</body>
+</html>
