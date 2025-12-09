@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diesel Intro</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('./images/entry1 background.jpeg');
+      background-size: cover;
+      font-family: "Georgia", serif;
+    }
+
+    .container {
+      max-width: 800px;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .title-text {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #222;
+      margin-bottom: 28px;
+    }
+
+    /* FULL SIZE IMAGE */
+    .center-image {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 10px;
+      margin: 20px auto 40px;
+      display: block;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .center-image:hover {
+      opacity: 0.9;
+      transform: scale(1.01);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- TEXT -->
+    <div class="title-text">
+      Evoking a winter’s tale of memories, freedom, and wonder, the new Prada collection shapes the holiday season into a perfect harmony of contrasts and elegance.
+    </div>
+
+    <!-- CLICKABLE IMAGE -->
+    <a href="https://www.prada.com/us/en.html?utm_campaign=GoogleSearch_US&utm_medium=CPC&utm_source=Google&utm_content=Pure_Brand_Exact&s_kwcid=AL!8549!3!785115798894!e!!g!!prada&gclsrc=aw.ds&gad_source=1&gad_campaignid=765165517&gbraid=0AAAAADgVuh9jXYQTTCBmfAmHz78tTAZlu&gclid=Cj0KCQiAi9rJBhCYARIsALyPDtuS_xmaHq81YTirTt6MYKlZfTPISy5V33eSyuPFd5SXYBh7SinO6a4aAr5vEALw_wcB" target="_blank">
+      <img
+        class="center-image"
+        src="https://i.pinimg.com/736x/7f/64/55/7f6455bcdd309a2ed95151a99b8ff49b.jpg"
+        alt="Diesel Visual"
+      />
+    </a>
+
+    <div class="buttons">
+      <button id="homeBtn">HOME</button>
+      <button id="startBtn">START</button>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("startBtn").onclick = () => {
+      window.location.href = "entry6-prada.html";
+    };
+
+    document.getElementById("homeBtn").onclick = () => {
+      window.location.href = "index.html";
+    };
+  </script>
+</body>
+</html>

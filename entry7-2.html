@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Random Changing Image Wall</title>
+
+<style>
+  body {
+    margin: 0;
+    background-image: url('./images/entry1 background.jpeg');
+    background-size: cover;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  .wall {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .img-box {
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* BUTTONS */
+  .buttons {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    box-sizing: border-box;
+  }
+
+  button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wall" id="wall"></div>
+
+<!-- BUTTONS -->
+<div class="buttons">
+    <button id="homeBtn">HOME</button>
+    <button id="startBtn">START</button>
+</div>
+
+
+<script>
+  const images = [
+    "https://i.pinimg.com/736x/5f/c1/69/5fc1695eea4ccfabfe8a49c5dd78cfc0.jpg",
+    "https://i.pinimg.com/1200x/1d/06/b4/1d06b41b6dd306ce6e52e4900c9952c4.jpg",
+    "https://i.pinimg.com/1200x/5e/62/a9/5e62a9f0fdbe77a16e4604a3bc9d31d6.jpg",
+    "https://i.pinimg.com/736x/c7/14/84/c71484bd424ca7392a2764f968319a50.jpg",
+    "https://i.pinimg.com/736x/49/b4/0d/49b40d750927e0f5f05a0e9d4b50ff27.jpg",
+    "https://i.pinimg.com/736x/c3/f0/70/c3f070059ed1d82c038de96e077995b2.jpg",
+    "https://i.pinimg.com/1200x/6b/01/d9/6b01d9cfd14c1288cce62508b1358442.jpg",
+    "https://i.pinimg.com/736x/13/0c/65/130c65cc0b90512921564f16621c8b19.jpg",
+    "https://i.pinimg.com/1200x/79/e7/93/79e793ca5c866c4e307d7e2cf40bbd4e.jpg",
+    "https://i.pinimg.com/1200x/c9/e4/d3/c9e4d3739645a5176e8efb6f18dd05f9.jpg",
+    "https://i.pinimg.com/736x/4f/b7/63/4fb76353aeece6f7fc227f7468e64a6c.jpg",
+    "https://i.pinimg.com/1200x/ff/81/7a/ff817af1d66f4ff9adb7500766692fbe.jpg"
+  ];
+
+  const wall = document.getElementById("wall");
+  const boxCount = 15;
+
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  function createBox() {
+    const box = document.createElement("div");
+    box.classList.add("img-box");
+
+    const img = document.createElement("img");
+    img.src = images[Math.floor(Math.random() * images.length)];
+
+    box.appendChild(img);
+    wall.appendChild(box);
+
+    randomizeBox(box);
+    changeImage(box);
+
+    return box;
+  }
+
+  function randomizeBox(box) {
+    const size = random(120, 240);
+    box.style.width = size + "px";
+    box.style.height = size + "px";
+
+    box.style.left = random(0, window.innerWidth - size) + "px";
+    box.style.top = random(0, window.innerHeight - size) + "px";
+  }
+
+  function changeImage(box) {
+    setInterval(() => {
+      box.style.opacity = 0;
+      setTimeout(() => {
+        const img = box.querySelector("img");
+        img.src = images[Math.floor(Math.random() * images.length)];
+        randomizeBox(box);
+        box.style.opacity = 1;
+      }, 800);
+    }, random(1200, 2500));
+  }
+
+  for (let i = 0; i < boxCount; i++) {
+    createBox();
+  }
+
+  /* BUTTON ACTIONS */
+  document.getElementById("startBtn").onclick = () => {
+    window.location.href = "entry7-acne.html";
+  };
+
+  document.getElementById("homeBtn").onclick = () => {
+    window.location.href = "index.html";
+  };
+</script>
+
+</body>
+</html>
