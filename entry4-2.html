@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thom Browne – Videos</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+      background-image: url('./images/entry1 background.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;   /* ← 여기! 수직 가운데 정렬 */
+      font-family: "Georgia", serif;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* 래퍼 추가 → 전체 묶어서 완전히 가운데에 배치 */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px; /* 요소 간 간격 */
+      width: 100%;
+    }
+
+    /* INTRO TEXT */
+    .intro-text {
+      max-width: 900px;
+      font-size: 23px;
+      line-height: 1.7;
+      text-align: center;
+      background: rgba(255,255,255,0.35);
+      padding: 20px 25px;
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* GRID 3 IMAGES INLINE */
+    .grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    figure {
+      width: 260px;
+      text-align: center;
+    }
+
+    figure img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #444;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    figure img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 14px;
+      background: #eee8dc;
+      color: #333;
+      padding: 6px 12px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* BUTTONS */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- INTRO TEXT -->
+    <div class="intro-text">
+      Thom Browne, born Tom Browne (born September 27, 1965), is an American fashion designer 
+      and the founder and head of design for Thom Browne, a luxury fashion brand based in 
+      New York City. Browne debuted his womenswear collection in 2014.
+      <br><br>
+      In 2023, Browne became the chairman of the Council of Fashion Designers of America, 
+      succeeding Tom Ford.
+    </div>
+
+    <!-- 3 IMAGES INLINE -->
+    <div class="grid">
+      <figure>
+        <a href="https://www.youtube.com/watch?v=iPQqOrdFUJI" target="_blank">
+          <img src="https://www.thombrowne.com/cdn/shop/files/LOOK_05.jpg?v=1759797371&width=450" />
+        </a>
+        <figcaption>SS 2026 | Paris Fashion Week</figcaption>
+      </figure>
+
+      <figure>
+        <a href="https://www.youtube.com/watch?v=CQy4RM2wUoI" target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYxYtHzav2Sgv9otgoGIiAzDw8LVXPf_KKWA&s" />
+        </a>
+        <figcaption>FW 2025/26 | New York Fashion Week</figcaption>
+      </figure>
+
+      <figure>
+        <a href="https://www.youtube.com/watch?v=gHTKJlbokcU" target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiq0_G-rZu5mxKWtOB06wYQhzCpw8vB_1RJw&s" />
+        </a>
+        <figcaption>Haute Couture Fall Winter 2024/2025</figcaption>
+      </figure>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+      <button id="homeBtn">HOME</button>
+      <button id="startBtn">START</button>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("startBtn").onclick = () => {
+      window.location.href = "entry4-thombrowne.html";
+    };
+
+    document.getElementById("homeBtn").onclick = () => {
+      window.location.href = "index.html";
+    };
+  </script>
+
+</body>
+</html>
