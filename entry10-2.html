@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Rotating Image Cluster</title>
+
+<style>
+  body {
+    margin: 0;
+    background-image: url('./images/entry1 background.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    font-family: "Georgia", serif;
+  }
+
+  /* rotating image cluster */
+  .cluster {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    animation: spin 14s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* image tiles */
+  .tile {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 14px;
+    transform: translate(-50%, -50%);
+  }
+
+  .tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* CENTER TEXT (MOVED UP!) */
+  .center-text {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 7%; /* ⬅⬅⬅ moved up so it doesn't overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 0.5px;
+    padding: 16px 30px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    z-index: 1000;
+    max-width: 650px;
+    line-height: 1.4;
+  }
+
+  /* BUTTONS */
+  .buttons {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  button {
+    padding: 14px 38px;
+    font-size: 18px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- CENTER TEXT (now ABOVE the rotating cluster) -->
+<div class="center-text">
+  Her outfit, with its tiny skirt and chunky loafers, had that distinct Miu Miu energy.
+</div>
+
+<!-- ROTATING IMAGE CLUSTER -->
+<div class="cluster" id="cluster"></div>
+
+<!-- BUTTONS -->
+<div class="buttons">
+  <button id="homeBtn">HOME</button>
+  <button id="startBtn">START</button>
+</div>
+
+<script>
+  /* IMAGES */
+  const imageURLs = [
+    "https://i.pinimg.com/1200x/ac/28/34/ac2834a3f47d29c2238a3972f6961daa.jpg",
+    "https://i.pinimg.com/1200x/45/0c/b6/450cb644e0032d5abcf0ac3390117eac.jpg",
+    "https://i.pinimg.com/736x/62/af/7e/62af7eb58ba3f8c743fa0d2573fd95ff.jpg",
+    "https://i.pinimg.com/736x/3e/73/8c/3e738cc033f8e59e79289ddf6486115c.jpg",
+    "https://i.pinimg.com/736x/29/a4/e2/29a4e2f27009bad629c5d06234e43c69.jpg",
+    "https://i.pinimg.com/1200x/3f/42/2f/3f422fadeafefef46e7865869ad70238.jpg",
+    "https://i.pinimg.com/736x/50/a7/5e/50a75e28e35a38b66097495f5b5fc1b8.jpg"
+  ];
+
+  const cluster = document.getElementById("cluster");
+  const count = imageURLs.length;
+  const radius = 170;
+
+  /* arrange in circle */
+  imageURLs.forEach((url, i) => {
+    const angle = (i / count) * (2 * Math.PI);
+    const x = radius * Math.cos(angle) + 225;
+    const y = radius * Math.sin(angle) + 225;
+
+    const tile = document.createElement("div");
+    tile.className = "tile";
+    tile.style.left = `${x}px`;
+    tile.style.top = `${y}px`;
+
+    const img = document.createElement("img");
+    img.src = url;
+
+    tile.appendChild(img);
+    cluster.appendChild(tile);
+  });
+
+  /* BUTTON ACTIONS */
+  document.getElementById("startBtn").onclick = () => {
+    window.location.href = "entry10-miumiu.html";
+  };
+
+  document.getElementById("homeBtn").onclick = () => {
+    window.location.href = "index.html";
+  };
+</script>
+
+</body>
+</html>
